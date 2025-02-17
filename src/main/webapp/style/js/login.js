@@ -42,75 +42,41 @@ function showdenglu() {
 		var isok = true;
 		if (username == "" || password == "") {
 			$("#tishi").html(
-					"<b style='color:red;font-size:15px;'>用户名或密码不能为空!</b>");
+				"<b style='color:red;font-size:15px;'>用户名或密码不能为空!</b>");
 			isok = false;
 			return;
 		}
-		if (varcode == "") {
-			$("#tishi").html(
-			"<b style='color:red;font-size:15px;'>验证码不能为空!</b>");
-	        isok = false;
-	        return;
-        }
 		$
-		.ajax({
-			type : "post",
-			url : "varcodecheck",
-			data : {
-				"varcode" : varcode
-			},
-			async : false,
-			dataType : 'text',
-			success : function(data) {
-				if (data == "0") {
-					$("#tishi")
+			.ajax({
+				type: "post",
+				url: "passwordcheck",
+				data: {
+					"username": username,
+					"password": password
+				},
+				async: false,
+				dataType: 'text',
+				success: function (data) {
+					if (data == 3) {
+						$("#tishi")
 							.html(
-									"<b style='color:red;font-size:15px;'>验证码错误!</b>");
+								"<b style='color:red;font-size:15px;'>您的账号已被屏蔽!</b>");
+						isok = false;
+					} else if (data == 0) {
+						$("#tishi")
+							.html(
+								"<b style='color:red;font-size:15px;'>用户名或密码错误!</b>");
+						isok = false;
+					} else {
+						$("#tishi").html("正在登录.....");
+					}
+				},
+				error: function (data) {
+					alert("登录出错！请联系管理员" + data);
 					isok = false;
-					return;
-				} else{
-					$
-					.ajax({
-						type : "post",
-						url : "passwordcheck",
-						data : {
-							"username" : username,
-							"password" : password
-						},
-						async : false,
-						dataType : 'text',
-						success : function(data) {
-							if (data == 3) {
-								$("#tishi")
-										.html(
-												"<b style='color:red;font-size:15px;'>您的账号已被屏蔽!</b>");
-								changevarcode();
-								isok = false;
-							}else
-							if (data == 0) {
-								$("#tishi")
-										.html(
-												"<b style='color:red;font-size:15px;'>用户名或密码错误!</b>");
-								changevarcode();
-								isok = false;
-							} else {
-								$("#tishi").html("正在登录.....");
-							}
-						},
-						error : function(data) {
-							alert("登录出错！请联系管理员" + data);
-							isok = false;
-						}
-					});
 				}
-			},
-			error : function(data) {
-				alert("登录出错！请联系管理员" + data);
-				isok = false;
-				return;
-			}
-		});
-		
+			});
+
 		if (isok) {
 			$("#form1").submit();
 		}
@@ -140,29 +106,6 @@ function showdenglu() {
 			isok = false;
 			return;
 		}
-		if (varcode == "") {
-			$("#tishi").html(
-			"<b style='color:red;font-size:15px;'>验证码不能为空!</b>");
-	        isok = false;
-	        return;
-        }
-		$
-		.ajax({
-			type : "post",
-			url : "varcodecheck",
-			data : {
-				"varcode" : varcode
-			},
-			async : false,
-			dataType : 'text',
-			success : function(data) {
-				if (data == "0") {
-					$("#tishi")
-							.html(
-									"<b style='color:red;font-size:15px;'>验证码错误!</b>");
-					isok = false;
-					return;
-				} else{
 					$
 					.ajax({
 						type : "post",
@@ -187,20 +130,8 @@ function showdenglu() {
 							isok = false;
 						}
 					});
-				}
-			},
-			error : function(data) {
-				alert("登录出错！请联系管理员" + data);
-				isok = false;
-				return;
-			}
-		});
-		
+
 		if (isok) {
 			$("#form1").submit();
 		}
     }
-	function changevarcode(){
-		var src = "changevarcode?t="+new Date().getTime();
-		$("#varcodeimg").attr("src",src);
-	}

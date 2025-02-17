@@ -54,15 +54,6 @@ public class MainController {
 		log.setType(type);
 		logBiz.insert(log);
 	}
-	@RequestMapping(value = "varcodecheck")//验证码验证
-	public void varcodecheck(String varcode,HttpServletRequest req,HttpServletResponse res) throws IOException {
-		res.setCharacterEncoding("utf-8");
-		PrintWriter pw = res.getWriter();
-		/*String var = (String) session.getAttribute("varcodenumber");*/
-		if(!CaptchaUtil.ver(varcode, req)){
-			pw.write("0");
-		}
-	}
 	
 	@RequestMapping(value = "changevarcode")//更换验证码，验证码显示
 	public void changevarcode(HttpServletRequest req,HttpServletResponse res) throws IOException, FontFormatException {
