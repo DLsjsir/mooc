@@ -41,9 +41,6 @@
 					for="password">密码</label> <input class="denglu-input" id="password"
 					type="password" name="password"><br> <label
 					id="labelrpw" for="rpassword"><br></label> <br />
-					<label
-					for="varcode">验证码</label> <br><input class="denglu-input" id="varcode"
-					type="text" name="varcode" style="width: 100px;">&nbsp;&nbsp;&nbsp;&nbsp;<img onclick="changevarcode()" id="varcodeimg" alt="验证码" src="changevarcode"> <br>
 				<span id="tishi"></span><br>
 			</form>
 			<button id="tijiao" onclick="quickpasswordchat()" type="button"

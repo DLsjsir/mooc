@@ -107,13 +107,6 @@
 				isok = false;
 				return;
 			}
-			if (varcode == "") {
-				$("#loginInfo").html(
-						"<b style='color:red;font-size:15px;'>验证码不能为空！</b>");
-				$("#varcode").focus();
-				isok = false;
-				return;
-			}
 			$
 					.ajax({
 						type : "post",
@@ -129,14 +122,12 @@
 									$("#loginInfo")
 											.html(
 													"<b style='color:red;font-size:15px;'>您的账号已被屏蔽!</b>");
-									changevarcode();
 									isok = false;
 								}else
 								if (data == 0) {
 									$("#loginInfo")
 											.html(
 													"<b style='color:red;font-size:15px;'>用户名或密码错误!</b>");
-									changevarcode();
 									isok = false;
 								} else {
 									$("#loginInfo").html("正在登录.....");
@@ -152,10 +143,6 @@
 			if (isok) {
 				$("#login1").submit();
 			}
-		function changevarcode(){
-			var src = "changevarcode?t="+new Date().getTime();
-			$("#varcodeimg").attr("src",src);
-		}
 	</script>
 	
 	<footer style="text-align: center">
