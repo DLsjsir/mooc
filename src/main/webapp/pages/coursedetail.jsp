@@ -73,7 +73,7 @@ body {
 
 									<div class="f-cb margin-top-15">
 										<c:if test="${course.type==0 }">免费</c:if>
-										<c:if test="${course.type==1 }">会员免费</c:if>
+										<c:if test="${course.type==1 }">免费</c:if>
 
 										<span class="cmt">学习人数(${course.hour }) </span> <br>
 										<c:if test="${course.label}!=null">

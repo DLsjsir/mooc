@@ -48,9 +48,6 @@
 							<input id="password" name="password" type="password"
 								class="form-control input-lg" placeholder="登录密码">
 						</div>
-						<label class="col-md-3 control-label"
-					for="varcode">验证码</label> <br><input class="form-control input-lg" id="varcode"
-					type="text" name="varcode" ><img onclick="changevarcode()" id="varcodeimg" alt="验证码" src="changevarcode"> <br>
 						<div class="form-group" id ="email">
 							
 						</div>
@@ -110,35 +107,11 @@
 				isok = false;
 				return;
 			}
-			if (varcode == "") {
-				$("#loginInfo").html(
-						"<b style='color:red;font-size:15px;'>验证码不能为空！</b>");
-				$("#varcode").focus();
-				isok = false;
-				return;
-			}
 			$
-			.ajax({
-				type : "post",
-				url : "varcodecheck",
-				data : {
-					"varcode" : varcode
-				},
-				async : false,
-				dataType : 'text',
-				success : function(data) {
-					if (data == "0") {
-						$("#loginInfo")
-								.html(
-										"<b style='color:red;font-size:15px;'>验证码错误!</b>");
-						isok = false;
-						return;
-					} else{
-						$
-						.ajax({
-							type : "post",
-							url : "passwordcheck",
-							data : {
+					.ajax({
+						type : "post",
+						url : "passwordcheck",
+						data : {
 								"username" : username,
 								"password" : password
 							},
@@ -149,14 +122,12 @@
 									$("#loginInfo")
 											.html(
 													"<b style='color:red;font-size:15px;'>您的账号已被屏蔽!</b>");
-									changevarcode();
 									isok = false;
 								}else
 								if (data == 0) {
 									$("#loginInfo")
 											.html(
 													"<b style='color:red;font-size:15px;'>用户名或密码错误!</b>");
-									changevarcode();
 									isok = false;
 								} else {
 									$("#loginInfo").html("正在登录.....");
@@ -167,23 +138,11 @@
 								isok = false;
 							}
 						});
-					}
-				},
-				error : function(data) {
-					alert("登录出错！请联系管理员" + data);
-					isok = false;
-					return;
-				}
-			});
 			
 			if (isok) {
 				$("#login1").submit();
 			}
-		}
-		function changevarcode(){
-			var src = "changevarcode?t="+new Date().getTime();
-			$("#varcodeimg").attr("src",src);
-		}
+	}
 	</script>
 	
 	<footer style="text-align: center">

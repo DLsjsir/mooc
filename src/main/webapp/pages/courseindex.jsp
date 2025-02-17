@@ -103,7 +103,7 @@
                 </div>
                 <div class="uc-ykt-coursecard-wrap_price f-pa">
                     <!--Regular if25-->
-                        <span class="u-free"><c:if test="${course.type==0 }">免费</c:if><c:if test="${course.type==1 }">会员免费</c:if></span> 
+                        <span class="u-free"><c:if test="${course.type==0 }">免费</c:if><c:if test="${course.type==1 }">免费</c:if></span>
                     
                 </div>
                 <!--Regular if26-->
