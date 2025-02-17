@@ -287,15 +287,11 @@ public class UserController {
 		String result = "订阅成功！";
 		User user = (User) session.getAttribute("loginUser");
 		Course c = courseBiz.selectByPrimaryKey(courseid);
-		if (user.getVip() == null && "1".equals(c.getType())) {
-			result = "此课程是会员课程，请购买会员！";
-		} else {
 			Message message = new Message();
 			message.setCourseid(courseid);
 			message.setUserid(userid);
 			int i = messageBiz.insert(message);
 			setlog(user, req.getRemoteAddr(), "订阅课程:" + c.getName());
-		}
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(result);

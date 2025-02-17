@@ -62,13 +62,6 @@
 			<a class="navbar-brand" href="course">上课吧 </a>
 		</div>
 
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a
-					href="${pageContext.request.contextPath }/index">首页</a></li>
-				<li><a href="showvip">会员中心</a></li>
-			</ul>
 			<form class="navbar-form navbar-left" action="coursesearch"
 				method="post">
 

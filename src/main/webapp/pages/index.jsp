@@ -182,7 +182,7 @@ body {
 														</div>
 														<div class="uc-ykt-coursecard-wrap_price f-pa">
 															<!--Regular if25-->
-															<span class="u-free">会员免费</span>
+															<span class="u-free">免费</span>
 
 														</div>
 														<!--Regular if26-->

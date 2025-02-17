@@ -37,15 +37,15 @@
 					 <label for="exampleInputEmail1">课程属性</label>
 					 <select name="type" class="form-control" id="exampleInputEmail1">
 					 <c:if test="${course.type eq '1' }">
-                     <option value="1" selected="selected">会员免费</option>
+                     <option value="1" selected="selected">免费</option>
                      <option value="0">免费</option>
                      </c:if>
                      <c:if test="${course.type eq '0' }">
-                     <option value="1">会员免费</option>
+                     <option value="1">免费</option>
                      <option value="0" selected="selected">免费</option>
                      </c:if>
                      <c:if test="${course==null}">
-                     <option value="1">会员免费</option>
+                     <option value="1"免费</option>
                      <option value="0">免费</option>
                      </c:if>
                      </select>
