@@ -76,7 +76,7 @@ classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
 						type="radio" name="lable" value="4">非常好<br>
 				</div>
 				<div
-					style="position: absolute; left: 270px; top: 10px; height: 150px; width: 500px;">
+					style="position: absolute; left: 250px; top: 10px; height: 150px; width: 500px;">
 					<textarea name="context" style="width: 100%; height: 100%;"
 						placeholder="输入你想说的话"></textarea>
 				</div>
