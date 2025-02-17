@@ -34,7 +34,6 @@ import com.mooc.util.UploadFile;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.web.servlet.ModelAndView;
-
 @Controller
 public class MainController {
 	@Autowired
