@@ -92,7 +92,7 @@ body {
 						<div class="col-md-12 column" >
 							<img alt="140x140" src="style/image/free.JPG" />
 							<div class="row clearfix">
-								<c:forEach var="course" items="${freecourses}" begin="0" end="2">
+								<c:forEach var="course" items="${freecourses}" begin="0" end="100">
 									<div class="col-md-4 column" >
 										<!--Regular if23-->
 										<div class="uc-coursecard uc-ykt-coursecard f-fl">
@@ -146,7 +146,7 @@ body {
 						<div class="col-md-12 column">
 							<img alt="140x140" src="style/image/nofree.JPG" />
 							<div class="row clearfix">
-								<c:forEach var="course" items="${vipcourses}" begin="0" end="2">
+								<c:forEach var="course" items="${vipcourses}" begin="0" end="100">
 
 									<div class="col-md-4 column">
 										<!--Regular if23-->
@@ -199,7 +199,7 @@ body {
 					</div>
 				</div>
 			</div>
-			<img alt="140x140" src="style/image/bottom.JPG" />
+
 		</div>
 	</div>
 </div>
