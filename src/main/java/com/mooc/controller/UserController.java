@@ -46,7 +46,7 @@ public class UserController {
 
 	/**
 	 * 普通日志写入
-	 * 
+	 *
 	 * @param loginUser
 	 * @param ip
 	 * @param type
@@ -119,6 +119,7 @@ public class UserController {
 			} else {
 				out.println("2");// 管理员返回
 			}
+
 		} else {
 			Log log = new Log();
 			log.setIp(req.getRemoteAddr());
@@ -316,7 +317,7 @@ public class UserController {
 		String result = i > 0 ? "true" : "false";
 		return result;
 	}
-	
+
 	@RequestMapping(value = "info")
 	//个人信息页面
 	public String Info(User user, HttpSession session) {
