@@ -138,11 +138,11 @@
 								isok = false;
 							}
 						});
-					}
 			
 			if (isok) {
 				$("#login1").submit();
 			}
+	}
 	</script>
 	
 	<footer style="text-align: center">
