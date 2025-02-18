@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="uc-ykt-coursecard-wrap_price f-pa">
-                    <!--Regular if25-->免费</c:if></span>
+                    <!--Regular if25-->免费</span>
                     
                 </div>
                 <!--Regular if26-->

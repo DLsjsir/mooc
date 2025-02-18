@@ -269,11 +269,6 @@ public class UserController {
 			return "login";
 		}
 		Course course = courseBiz.selectByPrimaryKey(courseid);
-		if ("1".equals(course.getType())) {
-			if (loginUser.getVip() == null) {
-				return "vip";
-			}
-		}
 		map.put("course", course);
 		List<Review> reviews = reviewBiz.select(courseid);
 		map.put("reviews", reviews);
