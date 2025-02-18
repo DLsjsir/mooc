@@ -36,14 +36,26 @@ public class CourseBizImpl implements CourseBiz{
 		return courseMapper.coursesearch(search);
 	}
 	@Override
-	public List<Course> freeCourse() {
+	public List<Course> ageType0() {
 		// TODO Auto-generated method stub
-		return courseMapper.freecourse();
+		return courseMapper.ageType0();
 	}
 	@Override
-	public List<Course> vipCourse() {
+	public List<Course> ageType1() {
 		// TODO Auto-generated method stub
-		return courseMapper.vipcourse();
+		return courseMapper.ageType1();
+	}
+
+	@Override
+	public List<Course> ageType2() {
+		// TODO Auto-generated method stub
+		return courseMapper.ageType2();
+	}
+
+	@Override
+	public List<Course> ageType3() {
+		// TODO Auto-generated method stub
+		return courseMapper.ageType3();
 	}
 	@Override
 	public int deleteByPrimaryKey(String id) {

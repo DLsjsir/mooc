@@ -86,10 +86,14 @@ public class MainController {
 
 	@RequestMapping(value = {"index",""})
 	public ModelAndView index(ModelAndView mav) {
-		List<Course> freecourses = courseBiz.freeCourse();
-		List<Course> vipcourses = courseBiz.vipCourse();
-		mav.addObject("freecourses", freecourses);
-		mav.addObject("vipcourses", vipcourses);
+		List<Course> ageType0 = courseBiz.ageType0();
+		List<Course> ageType1 = courseBiz.ageType1();
+		List<Course> ageType2 = courseBiz.ageType2();
+		List<Course> ageType3 = courseBiz.ageType3();
+		mav.addObject("ageType0", ageType0);
+		mav.addObject("ageType1", ageType1);
+		mav.addObject("ageType2", ageType2);
+		mav.addObject("ageType3", ageType3);
 		mav.setViewName("index");
 		return mav;
 	}
