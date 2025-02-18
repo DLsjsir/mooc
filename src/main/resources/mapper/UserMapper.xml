@@ -17,10 +17,11 @@
     <result column="education" property="education" jdbcType="VARCHAR" />
     <result column="vip" property="vip" jdbcType="TIMESTAMP" />
     <result column="fristtime" property="fristtime" jdbcType="TIMESTAMP" />
+    <result column="age" property="age" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, phone, mail, vx, sex, nickname, username, password, mission, buycase, mycase, collect, 
-    education, vip,fristtime
+    education, vip,fristtime,age
   </sql>
   <!-- 查询所有用户 -->
   <select id="selectAllUser" resultMap="BaseResultMap" >
@@ -107,7 +108,10 @@
       <if test="vip != null" >
         vip,
       </if>
-      
+
+     <if test="age != null" >
+        age,
+     </if>
         fristtime,
       
     </trim>

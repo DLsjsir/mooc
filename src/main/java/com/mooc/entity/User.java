@@ -29,6 +29,16 @@ public class User {
 
     private String education;
 
+    private String age;
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
     public String getSex() {
 		return sex;
 	}
