@@ -155,6 +155,7 @@ public class UserController {
 		user.setBuycase(null);
 		user.setMycase(null);
 		user.setVip(null);
+		user.setAge(null);
 		userBiz.insertSelective(user);
 		session.setAttribute("loginUser", user);
 		setlog(user, req.getRemoteAddr(), "快速注册");
@@ -163,14 +164,11 @@ public class UserController {
 
 	@RequestMapping(value = "regist")
 	// 注册
-	public ModelAndView regist(ModelAndView mav, String varcode, User user, HttpSession session, HttpServletRequest req) {
+	public ModelAndView regist(ModelAndView mav, User user, HttpSession session, HttpServletRequest req) {
 		String id = DateUtil.getId();
 		String username = user.getUsername();
 		mav.setViewName("redirect:course");
-		if (varcode == null) {
-			return mav;
-		}
-		if (userBiz.selectUser(username) == 1 || !CaptchaUtil.ver(varcode, req)) {
+		if (userBiz.selectUser(username) == 1 ) {
 			return mav;
 		}
 		user.setId(id);
@@ -178,6 +176,7 @@ public class UserController {
 		user.setBuycase(null);
 		user.setMycase(null);
 		user.setVip(null);
+		user.setAge(null);
 		userBiz.insertSelective(user);
 		setlog(user, req.getRemoteAddr(), "普通注册");
 		return mav;
