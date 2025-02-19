@@ -25,9 +25,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/style/css/course.css"> --%>
 <title>mooc</title>
-<!--[if lt IE 9]>  
-<script src="js/html5shiv.js"></script>  
-<script src="js/respond.min.js"></script>  
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
 <![endif]-->
 <style>
 body {
@@ -42,7 +42,7 @@ body {
 <body>
 	<!--下面是顶部导航栏的代码-->
 	<%@include file="head.jsp"%>
-	
+
 	<!-- <!—自适应布局-->
 	<div class="container-fluid" style="text-align: center;">
 		<video controls="controls"> <source src="style/video/${course.id }.Ogg"
@@ -52,7 +52,7 @@ body {
 	<!--<embed src="style/video/1.mp4" />
 <object data="style/video/1.mp4" type="video/mp4" />
  <video width="320" height="240" src="blob:http://tts.tmooc.cn/338a66cb-32d9-4f08-bdbf-59c5d348d6cd" webkit-playsinline="" playsinline="" controls>
-    
+
     您的浏览器不支持 video 标签。
 </video>
 
@@ -110,7 +110,7 @@ classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
 					<c:if test="${review.sex eq 'Female'}">
 					她觉得课程:
 					</c:if>
-					
+
 <c:if test="${review.lable == 1 }">
 一般
 </c:if>

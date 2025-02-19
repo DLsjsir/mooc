@@ -11,7 +11,7 @@
 <script src="style/js/login.js"></script>
 <script src="style/js/loginandregist.js"></script>
 <!-- <script src="style/js/jquery-3.2.1.min.js"></script> -->
- <script src="style/js/amazeui.min.js"></script> 
+ <script src="style/js/amazeui.min.js"></script>
 <link rel="stylesheet" href="style/css/bootstrap.min.css">
 <script src="style/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style/css/course.css">
@@ -59,7 +59,10 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="course">上课吧 </a>
+			<a class="navbar-brand" href="index">中医养生课程平台 </a>
+			<a class="navbar-brand" href="index">首页 </a>
+			<a class="navbar-brand" href="index_book">在线书城 </a>
+			<a class="navbar-brand" href="course">推荐 </a>
 		</div>
 
 			<form class="navbar-form navbar-left" action="coursesearch"

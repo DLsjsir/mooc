@@ -146,7 +146,7 @@ body {
 						<div class="col-md-12 column">
 							<a>18-40岁</a>
 							<div class="row clearfix">
-								<c:forEach var="course" items="${ageType1}" begin="0" end="2">
+								<c:forEach var="course" items="${ageType1}" begin="0" end="100">
 
 									<div class="col-md-4 column">
 										<!--Regular if23-->
@@ -255,7 +255,7 @@ body {
 						<div class="col-md-12 column" >
 							<a>60岁以上</a>
 							<div class="row clearfix">
-								<c:forEach var="course" items="${ageType3}" begin="0" end="2">
+								<c:forEach var="course" items="${ageType3}" begin="0" end="100">
 									<div class="col-md-4 column" >
 										<!--Regular if23-->
 										<div class="uc-coursecard uc-ykt-coursecard f-fl">
@@ -307,7 +307,7 @@ body {
 					</div>
 				</div>
 			</div>
-			<img alt="140x140" src="style/image/bottom.JPG" />
+
 		</div>
 	</div>
 </div>
