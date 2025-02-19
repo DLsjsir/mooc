@@ -63,6 +63,7 @@
 			<a class="navbar-brand" href="index">首页 </a>
 			<a class="navbar-brand" href="index_book">在线书城 </a>
 			<a class="navbar-brand" href="course">推荐 </a>
+			<a class="navbar-brand" href="coursetxt">测试书城单页 </a>
 		</div>
 
 			<form class="navbar-form navbar-left" action="coursesearch"

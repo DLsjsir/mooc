@@ -111,6 +111,9 @@ public class MainController {
 		mav.setViewName("index_book");
 		return mav;
 	}
+
+
+
 	@RequestMapping(value = "subreview")
 	// 提交评论
 	public String subreview(HttpSession session, Review review,HttpServletRequest req) {
