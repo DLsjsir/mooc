@@ -277,6 +277,13 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = "coursetxt")
+	// 单课程视屏
+	public String courseTxt(HttpSession session, Map map) {
+		return "coursetxt";
+
+	}
+
 	@RequestMapping(value = "insertCourse")
 	// 加入课程
 	public void insertCourse(int courseid, String userid, HttpSession session, HttpServletRequest req,
