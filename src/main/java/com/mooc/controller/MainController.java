@@ -54,12 +54,12 @@ public class MainController {
 		log.setType(type);
 		logBiz.insert(log);
 	}
-	
+
 	@RequestMapping(value = "changevarcode")//更换验证码，验证码显示
 	public void changevarcode(HttpServletRequest req,HttpServletResponse res) throws IOException, FontFormatException {
 
 		/*String url=req.getServletContext().getRealPath("/varcodeimg")+"\\"+varcodeurl+".jpg";*/
-		
+
 		//验证码生成  varcodenumber为验证码的值
 		/* url=req.getServletContext().getRealPath("/varcodeimg")+"\\"+varcodeurl+".jpg";*/
 		//写出到response的输出流中
@@ -70,19 +70,19 @@ public class MainController {
         //CaptchaUtil.out(5, req, res);
         // 设置宽、高、位数
         //CaptchaUtil.out(130, 48, 5, req, res);
-        
+
         // 使用gif验证码
         GifCaptcha gifCaptcha = new GifCaptcha(130,48,4);
         gifCaptcha.setFont(gifCaptcha.FONT_7);
 		CaptchaUtil.out(gifCaptcha,req, res);
 	}
-		
+
 	@RequestMapping(value = "admin")//管理员登录入口
 	public String admin(HttpSession session) {
 		return "loginadmin";
 	}
-	
-	
+
+
 
 	@RequestMapping(value = {"index",""})
 	public ModelAndView index(ModelAndView mav) {
@@ -98,6 +98,19 @@ public class MainController {
 		return mav;
 	}
 
+	@RequestMapping(value = "index_book")
+	public ModelAndView index_book(ModelAndView mav){
+		List<Course> ageType0 = courseBiz.ageType0();
+		List<Course> ageType1 = courseBiz.ageType1();
+		List<Course> ageType2 = courseBiz.ageType2();
+		List<Course> ageType3 = courseBiz.ageType3();
+		mav.addObject("ageType0", ageType0);
+		mav.addObject("ageType1", ageType1);
+		mav.addObject("ageType2", ageType2);
+		mav.addObject("ageType3", ageType3);
+		mav.setViewName("index_book");
+		return mav;
+	}
 	@RequestMapping(value = "subreview")
 	// 提交评论
 	public String subreview(HttpSession session, Review review,HttpServletRequest req) {
@@ -143,7 +156,7 @@ public class MainController {
 		map.put("search", search);
 		return "courseindex";
 	}
-	
+
 	@RequestMapping("/error/{errorcode}")
 	public String error(@PathVariable int errorcode) {
 		String pager = "404";
@@ -157,7 +170,7 @@ public class MainController {
     }
 		return pager;
 	}
-	
+
 	/*@RequestMapping(value="testfile")
 	public String testfile(HttpSession session,HttpServletRequest request,HttpServletResponse response) {
 		if(!UploadFile.uploadFile("20",request)) {
@@ -166,6 +179,6 @@ public class MainController {
 		session.setAttribute("message", "上传成功！");
 		return "message";
 	}*/
-   
-  
+
+
 }

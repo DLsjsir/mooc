@@ -236,10 +236,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "index_book")
-	public String index_book(HttpSession session){
-		return "index_book";
-	}
+
 
 	@RequestMapping(value = "coursedetail")
 	// 单课程主页
