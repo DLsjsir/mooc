@@ -11,8 +11,12 @@ public interface CourseBiz {
 	Course selectByPrimaryKey(int id);
     int updateByPrimaryKeySelective(Course record);
     List<Course> coursesearch(String search);
-    List<Course> freeCourse();
-    List<Course> vipCourse();
+    List<Course> ageType0();
+    List<Course> ageType1();
     int deleteByPrimaryKey(String id);
     int savecourse(HttpServletRequest req);
+
+    List<Course> ageType2();
+
+    List<Course> ageType3();
 }

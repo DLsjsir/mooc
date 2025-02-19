@@ -16,15 +16,27 @@
   <select id="selectlastcourse" resultMap="BaseResultMap">
   SELECT * from course ORDER BY id desc LIMIT 0,1
   </select>
-  <select id="freecourse"  resultMap="BaseResultMap" >
+  <select id="ageType0"  resultMap="BaseResultMap" >
     select *
     from course where type = 0
         
   </select>
-  <select id="vipcourse"  resultMap="BaseResultMap" >
+  <select id="ageType1"  resultMap="BaseResultMap" >
     select *
     from course where type = 1
         
+  </select>
+
+  <select id="ageType2"  resultMap="BaseResultMap" >
+    select *
+    from course where type = 2
+
+  </select>
+
+  <select id="ageType3"  resultMap="BaseResultMap" >
+    select *
+    from course where type = 3
+
   </select>
   <select id="coursesearch" parameterType="String" resultMap="BaseResultMap" >
     select *
