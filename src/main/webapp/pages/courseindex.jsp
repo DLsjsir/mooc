@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<html>  
-<head>  
-<meta charset="utf-8"> 
+<html>
+<head>
+<meta charset="utf-8">
 <link rel="stylesheet" href="style/css/login.css">
 <script src="style/js/login.js"></script>
 <link rel="stylesheet" href="style/css/amazeui.min.css">
@@ -21,24 +21,24 @@
 <script src="style/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style/css/course.css"> -->
 <title>mooc</title>
-<!--[if lt IE 9]>  
-<script src="js/html5shiv.js"></script>  
-<script src="js/respond.min.js"></script>  
-<![endif]-->  
-<style>  
-        body {  
-            padding-top: 50px;  
-            padding-bottom: 40px;  
-            color: #5a5a5a;  
-        }  
-  
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 40px;
+            color: #5a5a5a;
+        }
 
-  
-</style>  
-  
-</head>  
-  
-<body>  
+
+
+</style>
+
+</head>
+
+<body>
 <!--下面是顶部导航栏的代码-->
 <%@include file="head.jsp"%>
 <c:if test="${search!=null}">
@@ -65,21 +65,21 @@
 </div>
 </c:if>
 <!--下面是主要内容的代码-->
-<div class="container-fluid">  
+<div class="container-fluid">
 <div class="j-course-list"><div class="uc-course-list g-flow">
-	 <div class="uc-course-list_content">	
-		
+	 <div class="uc-course-list_content">
+
 	    <ul class="uc-course-list_ul">
 	        <!--Regular list-->
 	    <c:forEach var="course" items="${courses}" varStatus="status">
-	       
+
 	        <li class="uc-course-list_itm f-ib">
 				<!--Regular if23-->
     <div class="uc-coursecard uc-ykt-coursecard f-fl">
     <a target="_blank" class="j-href" href="coursedetail?id=${course.id}">
         <div class="uc-ykt-coursecard-wrap f-cb f-pr">
             <div class="uc-ykt-coursecard-wrap_box">
-                <div class="uc-ykt-coursecard-wrap_picbox f-pr"> 
+                <div class="uc-ykt-coursecard-wrap_picbox f-pr">
                 	<img class="imgPic j-img" src="<c:url value="/style/image/courses/${course.id}.jpg?imageView&amp;thumbnail=223y124&amp;quality=100"/>" data-src="" alt="课程图片" >
                     <div class="m-showLectorTag f-pa" style="display: none;">老师参与</div>
                 </div>
@@ -91,20 +91,20 @@
                 <div class="uc-ykt-coursecard-wrap_scorewrap f-thide f-cb f-pa">
                     <div class="m-scorecnt f-fl f-cb">
                         <div class="uc-starrating">
-	 
+
 	<span class="uc-starrating_score">${course.label }</span>
 </div>
                     </div>
                     <div class="m-hot f-fl">
                         <!--Regular if24-->
                             (${course.hour }人学过)
-                        
+
                     </div>
                 </div>
                 <div class="uc-ykt-coursecard-wrap_price f-pa">
                     <!--Regular if25-->
                         <span class="u-free"><c:if test="${course.type==0 }">免费</c:if><c:if test="${course.type==1 }">免费</c:if></span>
-                    
+
                 </div>
                 <!--Regular if26-->
             </div>
@@ -118,11 +118,11 @@
 	    <!--Regular if22-->
 	 </div>
 </div></div>
-</div>  
+</div>
   <footer style="text-align: center">
     <hr>
-<p class="am-padding-left">© 2018 <a href="#">山西农业大学北京海淀基地</a>. 作者:杨祺晖</p>
+<p class="am-padding-left">© 2025 <a href="#">郑州西亚斯学院</a>. 作者:杨祺晖</p>
 </footer>
-  
-</body>  
+
+</body>
 </html>

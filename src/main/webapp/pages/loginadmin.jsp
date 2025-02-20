@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="style/js/loginkuang.js"></script>
   <link rel="stylesheet" href="style/css/course.css">
-<link  rel="stylesheet" href="style/css/bootstrap.min.css"> 
+<link  rel="stylesheet" href="style/css/bootstrap.min.css">
 <script src="style/js/jquery.min.js"></script>
 <script src="style/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style/css/11.css">
@@ -29,7 +29,7 @@
 
 
 	<div class="container-fluid full ">
-	<form id="login1" action="adminlogin" method="post" 
+	<form id="login1" action="adminlogin" method="post"
 						class="form col-md-4 col-md-offset-4 ">
 						<label for="username" class="col-md-3 control-label">用户名</label>
 						<div class="form-group" >
@@ -41,24 +41,24 @@
 							<input id="password" name="password" type="password"
 								class="form-control input-lg" placeholder="登录密码">
 						</div>
-						
+
 						<div class="form-group" id ="email">
-							
+
 						</div>
 						<div class="form-group" id="phone">
-							
+
 					    </div>
 					    <div class="form-group" id="nickname">
-							
+
 					    </div>
 					    <div class="form-group" id="sex">
-							
+
 					    </div>
-					
+
 						<div class="form-group">
 							<div id="loginInfo"></div>
 						</div>
-						 
+
 						<div class="form-group">
 							<button id="submit1" class="btn btn-primary btn-lg btn-block"
 								type="button" onclick="validatePassword()">立刻登录</button>
@@ -66,7 +66,7 @@
 					</form>
 	</div>
 	</div>
-	
+
 	<div class="footer">
 	<a class="icon-ic_login_backhome" href="index">
 	返回首页</a>
@@ -138,12 +138,12 @@
 				$("#login1").submit();
 			}
 		}
-			
+
 	</script>
-	
+
 	<footer style="text-align: center">
     <hr>
-<p class="am-padding-left">© 2018 <a href="#">山西农业大学北京海淀基地</a>. 作者:杨祺晖</p>
+<p class="am-padding-left">© 2025 <a href="#">郑州西亚斯学院</a>. 作者:杨祺晖</p>
 </footer>
 
 

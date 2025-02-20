@@ -31,7 +31,7 @@
 							"<b style='color:red;font-size:15px;margin-top:auto;'>两次密码不一致！</b>");
 			isok = false;
 			return;
-		} 
+		}
 
 		$.ajax({
 			type : "post",
@@ -58,10 +58,10 @@
 		});
 		 if (isok) {
 			$("#passwordform").submit();
-		} 
+		}
 
 	}
-	
+
 </script>
 <%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/style/css/bootstrap.min.css">
@@ -70,9 +70,9 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/style/css/course.css"> --%>
 <title>mooc</title>
-<!--[if lt IE 9]>  
-<script src="js/html5shiv.js"></script>  
-<script src="js/respond.min.js"></script>  
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
 <![endif]-->
 <style>
 body {
@@ -267,7 +267,7 @@ body {
 	<footer style="text-align: center">
 	<hr>
 	<p class="am-padding-left">
-		© 2018 <a href="#">山西农业大学北京海淀基地</a>.作者:杨祺晖
+		© 2025 <a href="#">郑州西亚斯学院</a> 作者:艾思琪
 	</p>
 	</footer>
 

@@ -20,9 +20,9 @@
 <script src="style/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style/css/course.css"> -->
 <title>mooc</title>
-<!--[if lt IE 9]>  
-<script src="js/html5shiv.js"></script>  
-<script src="js/respond.min.js"></script>  
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
 <![endif]-->
 <style>
 body {
@@ -212,7 +212,7 @@ body {
 	<footer style="text-align: center">
 	<hr>
 	<p class="am-padding-left">
-		© 2018 <a href="#">山西农业大学北京海淀基地</a>. 作者:杨祺晖
+		© 2025 <a href="#">郑州西亚斯学院</a>. 作者:杨祺晖
 	</p>
 	</footer>
 </body>
