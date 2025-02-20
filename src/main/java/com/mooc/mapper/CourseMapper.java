@@ -11,6 +11,7 @@ import com.mooc.entity.Course;
 public interface CourseMapper {
 	public List<Course> coursesearch(String scarch);
 	public List<Course> selectAllCourse();
+    public List<Course> selectAllBooks();
 	public List<Course> ageType0();
 	public List<Course> ageType1();
 

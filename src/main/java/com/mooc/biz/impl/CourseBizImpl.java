@@ -20,6 +20,12 @@ public class CourseBizImpl implements CourseBiz{
 		// TODO Auto-generated method stub
 		return courseMapper.selectAllCourse();
 	}
+
+	@Override
+	public List<Course> selectAllBooks() {
+		// TODO Auto-generated method stub
+		return courseMapper.selectAllBooks();
+	}
 	@Override
 	public Course selectByPrimaryKey(int id) {
 		// TODO Auto-generated method stub

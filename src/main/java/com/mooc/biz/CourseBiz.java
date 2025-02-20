@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.mooc.entity.Course;
 
 public interface CourseBiz {
-	public List<Course> selectAllCourse();
+	List<Course> selectAllCourse();
+    List<Course> selectAllBooks();
 	Course selectByPrimaryKey(int id);
     int updateByPrimaryKeySelective(Course record);
     List<Course> coursesearch(String search);

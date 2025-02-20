@@ -12,7 +12,7 @@
     <result column="kind" property="kind" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, context, type, price, label, hour
+    id, name, context, type, price, label, hour,kind
   </sql>
   <select id="selectlastcourse" resultMap="BaseResultMap">
   SELECT * from course ORDER BY id desc LIMIT 0,1
@@ -48,7 +48,12 @@
   </select>
 <select id="selectAllCourse" resultMap="BaseResultMap"  >
     select *
-    from course
+    from course where kind = 0
+  </select>
+
+  <select id="selectAllBooks" resultMap="BaseResultMap"  >
+    select *
+    from course where kind = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="INTEGER" >
     select 

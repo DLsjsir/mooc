@@ -26,10 +26,20 @@
 			<form role="form" action="coursesave" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="exampleInputEmail1">课程或者书籍</label>
+					<c:if test="${course ==null }">
 					<select name="kind" class="form-control" id="exampleInputEmail1">
 						<option value="0" selected="selected">课程</option>
 						<option value="1">书籍</option>
 					</select>
+					</c:if>
+					<c:if test="${course.kind eq'0' }">
+					<select name="kind" class="form-control" id="exampleInputEmail1">
+						<option value="0" selected="selected">课程</option>
+					</c:if>
+						<c:if test="${course.kind eq '1' }">
+						<select name="kind" class="form-control" id="exampleInputEmail1">
+							<option value="1" selected="selected">书籍</option>
+							</c:if>
 				</div>
 			<input type="hidden" name="id" value="${course.id }">
 			    <div class="form-group">
