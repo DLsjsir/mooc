@@ -23,6 +23,37 @@
             padding-bottom: 40px;
             color: #5a5a5a;
         }
+        #pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #pagination button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        #pagination span {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
     </style>
 </head>
 <body>
@@ -30,17 +61,17 @@
 <%@include file="head.jsp" %>
 
 <div class="container-fluid" style="text-align: center;">
-    <div id="displayArea" style="font-size:20px;letter-spacing: 2px;line-height: 1.4;margin-top: 100px;margin-left: 200px;margin-right: 200px;margin-bottom: 20px"></div>
+    <div id="displayArea" style="font-size:17px;letter-spacing: 2px;line-height: 1.4;margin-top: 100px;margin-left: 200px;margin-right: 200px;margin-bottom: 20px"></div>
 
     <div id="pagination">
-        <button onclick="previousPage()">Previous</button>
+        <button onclick="previousPage()">上一页</button>
         <span id="pageNumber">1</span>
-        <button onclick="nextPage()">Next</button>
+        <button onclick="nextPage()">下一页</button>
     </div>
 
     <script>
         let currentPage = 1;
-        let pages = [];6
+        let pages = [];
         // 读取文件内容
         function readFile() {
             fetch('../style/txt/test.txt')
@@ -90,7 +121,7 @@
 
 <!-- 评论区 -->
 <div
-        style="position: relative; border: 2px solid; border-radius: 5px; left: 23.5%; top: 20px; width: 1000px; padding: 10px;">
+        style="position: relative; border: 2px solid; border-radius: 5px; margin: auto; top: 20px; width: 1000px; padding: 10px;">
     <!-- 输入区 -->
     <div
             style="background-color:; position: relative; width: 975px; padding: 10px; margin-bottom: 30px; border-bottom-style: dotted;">

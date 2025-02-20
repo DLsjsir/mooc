@@ -8,13 +8,16 @@
 <head>
 <link href="favicon.ico" rel="icon" type="image/x-icon" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<script src="style/js/jquery-3.2.1.min.js"></script>
+<script src="style/js/jquery-3.2.1.min.js"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="style/css/base.css">
 <link rel="stylesheet" type="text/css" href="style/css/home.css">
 <script type="text/javascript" src="style/js/banner.js"></script>
 <script type="text/javascript" src="style/js/ad.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
 <style type="text/css">
 body {

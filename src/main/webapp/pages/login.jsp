@@ -8,10 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="style/js/loginkuang.js"></script>
   <link rel="stylesheet" href="style/css/course.css">
-<link  rel="stylesheet" href="style/css/bootstrap.min.css"> 
+<link  rel="stylesheet" href="style/css/bootstrap.min.css">
 <script src="style/js/jquery.min.js"></script>
 <script src="style/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style/css/11.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -36,7 +38,7 @@
 
 
 	<div class="container-fluid full ">
-	<form id="login1" action="login" method="post" 
+	<form id="login1" action="login" method="post"
 						class="form col-md-4 col-md-offset-4 ">
 						<label for="username" class="col-md-3 control-label">用户名</label>
 						<div class="form-group" >
@@ -49,22 +51,22 @@
 								class="form-control input-lg" placeholder="登录密码">
 						</div>
 						<div class="form-group" id ="email">
-							
+
 						</div>
 						<div class="form-group" id="phone">
-							
+
 					    </div>
 					    <div class="form-group" id="nickname">
-							
+
 					    </div>
 					    <div class="form-group" id="sex">
-							
+
 					    </div>
-					
+
 						<div class="form-group">
 							<div id="loginInfo"></div>
 						</div>
-						 
+
 						<div class="form-group">
 							<button id="submit1" class="btn btn-primary btn-lg btn-block"
 								type="button" onclick="validatePassword()">立刻登录</button>
@@ -72,7 +74,7 @@
 					</form>
 	</div>
 	</div>
-	
+
 	<div class="footer">
 	<a class="icon-ic_login_backhome" href="index">
 	返回首页</a>
@@ -81,12 +83,12 @@
 	</div>
 
 
-	
-	
+
+
 	<script type="text/javascript">
 	<!--实现动态改变页面进行注册操作 -->
-	
-	
+
+
 		function validatePassword() {
 			var username = $("#username").val();
 			var password = $("#password").val();
@@ -138,13 +140,13 @@
 								isok = false;
 							}
 						});
-			
+
 			if (isok) {
 				$("#login1").submit();
 			}
 	}
 	</script>
-	
+
 	<footer style="text-align: center">
     <hr>
 <p class="am-padding-left">© 2018 <a href="#">山西农业大学北京海淀基地</a>. 作者:杨祺晖</p>

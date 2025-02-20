@@ -62,7 +62,7 @@ classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
 </object> -->
 	<!-- 评论区 -->
 	<div
-		style="position: relative; border: 2px solid; border-radius: 5px; left: 23.5%; top: 20px; width: 1000px; padding: 10px;">
+		style="position: relative; border: 2px solid; border-radius: 5px; margin: auto; top: 20px; width: 1000px; padding: 10px;">
 		<!-- 输入区 -->
 		<div
 			style="background-color:; position: relative; width: 975px; padding: 10px; margin-bottom: 30px; border-bottom-style: dotted;">

@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><c:choose><c:when test="${user!=null }">用户详情</c:when><c:otherwise>新建用户</c:otherwise></c:choose></title>
-</head><%-- 
+</head><%--
 <%@include file="leftmeun.jsp" %> --%>
 <body>
 <div class="container-fluid full " style="float: left;width: 1500px;height: 2000px;margin-top: 100px;">
@@ -54,7 +54,15 @@
 							<label class="col-md-3 control-label" id="spanEmail"
 								style="text-align: left;"></label>
 						</div>
-
+						<div class="form-group">
+							<label class="col-md-3 control-label">年龄</label>
+							<div class="col-md-6">
+								<input name="age" type="text" id="age" placeholder="年龄"
+									   class="form-control">
+							</div>
+							<label class="col-md-3 control-label"
+								   style="text-align: left;"></label>
+						</div>
 						<div class="form-group">
 							<label for="birthDate" class="col-md-3 control-label">手机号</label>
 							<div class="col-md-6">
@@ -92,7 +100,7 @@
 								<div class="row">
 									<div class="col-sm-6">
 									<%
-										
+
 										String sex = user.getSex();
 									%>
 										<label class="radio-inline"> <input name="sex"
@@ -102,7 +110,7 @@
 									</div>
 									<div class="col-sm-6">
 										<label class="radio-inline"> <input name="sex"
-											class="gender" type="radio" id="maleRadio" value="Male" 
+											class="gender" type="radio" id="maleRadio" value="Male"
 											<%if ("Male".equals(sex)) {out.print("checked");}%>/>男
 										</label>
 									</div>
@@ -135,7 +143,7 @@
 								<input name="username" type="text" id="username" maxlength="10"
 									placeholder="请输入用户名" class="input form-control"
 								 autofocus />
-								 
+
 							</div>
 							<label class="col-md-3 control-label" id="spanUsername"
 								style="text-align: left;"></label>
@@ -170,7 +178,15 @@
 							<label class="col-md-3 control-label" id="spanBirth"
 								style="text-align: left;"></label>
 						</div>
-
+								<div class="form-group">
+									<label class="col-md-3 control-label">年龄</label>
+									<div class="col-md-6">
+										<input name="age" type="text" id="age" placeholder="年龄"
+											   class="form-control">
+									</div>
+									<label class="col-md-3 control-label"
+										   style="text-align: left;"></label>
+								</div>
 						<div class="form-group">
 							<label class="control-label col-md-3">性别</label>
 							<div class="col-sm-6">
