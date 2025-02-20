@@ -63,6 +63,27 @@ public class CourseBizImpl implements CourseBiz{
 		// TODO Auto-generated method stub
 		return courseMapper.ageType3();
 	}
+
+	@Override
+	public List<Course> bookAgeType0() {
+		return courseMapper.bookAgeType0();
+	}
+
+	@Override
+	public List<Course> bookAgeType1() {
+		return courseMapper.bookAgeType1();
+	}
+
+	@Override
+	public List<Course> bookAgeType2() {
+		return courseMapper.bookAgeType2();
+	}
+
+	@Override
+	public List<Course> bookAgeType3() {
+		return courseMapper.bookAgeType3();
+	}
+
 	@Override
 	public int deleteByPrimaryKey(String id) {
 		// TODO Auto-generated method stub

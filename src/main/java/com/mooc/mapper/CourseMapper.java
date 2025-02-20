@@ -31,4 +31,12 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+
+    List<Course> bookAgeType0();
+
+    List<Course> bookAgeType1();
+
+    List<Course> bookAgeType2();
+
+    List<Course> bookAgeType3();
 }

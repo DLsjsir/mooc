@@ -20,4 +20,12 @@ public interface CourseBiz {
     List<Course> ageType2();
 
     List<Course> ageType3();
+
+    List<Course> bookAgeType0();
+
+    List<Course> bookAgeType1();
+
+    List<Course> bookAgeType2();
+
+    List<Course> bookAgeType3();
 }
