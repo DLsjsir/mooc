@@ -420,7 +420,7 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		resp.setCharacterEncoding("utf-8");
 		PrintWriter pw = resp.getWriter();
-		if(!removepassword.equals("591284209")){
+		if(!removepassword.equals("123456")){
 			pw.print("0");
 		}else{
 			Course course = courseBiz.selectByPrimaryKey(courseid);

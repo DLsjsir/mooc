@@ -110,7 +110,7 @@ function reflash(){
 }
 function prevpage(){
 	var page = ${page}-1;
-	window.location.href="logpage?page="+page;
+	window.location.href="allcourse?page="+page;
 }
 function nextpage(){
 	var maxpage = ${maxpage};
@@ -118,7 +118,7 @@ function nextpage(){
 	if(page>maxpage){
 		alert("这是最后一页！");
 	}else{ 
-	window.location.href="logpage?page="+page;
+	window.location.href="allcourse?page="+page;
     }
 	}
 function removecourse(courseid){
