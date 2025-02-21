@@ -57,7 +57,7 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		if (loginUser == null) {
 			return "login"; 
-		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())&&!"teacher".equals(loginUser.getMission())){
 			//添加管理员的再次验证
 		session.setAttribute("loginUser", loginUser);
 		return "redirect:course";
@@ -74,6 +74,10 @@ public class AdminController {
 		User loginUser = userBiz.selectLoginUser(paramMap);
 		if (loginUser == null) {
 			return "login"; 
+		}else if("teacher".equals(loginUser.getMission())){
+			session.setAttribute("loginUser", loginUser);
+			setlog(loginUser, req.getRemoteAddr(),"登录", loginUser.getUsername());
+			return "admin/teacherleftmenu";
 		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
 			//添加管理员登录的再次验证，防止直接跳过前端验证进行强制登录
 		session.setAttribute("loginUser", loginUser);
@@ -84,11 +88,11 @@ public class AdminController {
 		log.setType("用户尝试强制登录管理员页面");
 		logBiz.insert(log);
 		return "redirect:course";
-		}else{
+		} else{
 		session.setAttribute("loginUser", loginUser);
 		setlog(loginUser, req.getRemoteAddr(),"登录", loginUser.getUsername());
 		return "admin/leftmeun";
-		
+
 		}
 	}
 	@RequestMapping(value = "alluser")//展示所有用户
@@ -325,7 +329,7 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		if (loginUser == null) {
 			return "login"; 
-		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())&&!"teacher".equals(loginUser.getMission())){
 			//添加管理员的再次验证
 		return "redirect:course";
 		}
@@ -377,7 +381,7 @@ public class AdminController {
 		int page = (int) session.getAttribute("page");
 		if (loginUser == null) {
 			return "login"; 
-		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())&&!"teacher".equals(loginUser.getMission())){
 			//添加管理员的再次验证
 		return "redirect:course";
 		}
@@ -554,7 +558,7 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		if (loginUser == null) {
 			return "login"; 
-		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())&&!"teacher".equals(loginUser.getMission())){
 			//添加管理员的再次验证
 		return "redirect:course";
 		}
@@ -562,6 +566,10 @@ public class AdminController {
 			Course course = courseBiz.selectByPrimaryKey(Integer.parseInt(courseid));
 			session.setAttribute("course", course);
 			return "admin/course";
+		}
+		if("teacher".equals(loginUser.getMission())){
+			session.removeAttribute("course");
+			return "admin/tcourse";
 		}
 		    session.removeAttribute("course");
 			return "admin/course";
@@ -573,14 +581,18 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		if (loginUser == null) {
 			return "login"; 
-		}else if(!"admin".equals(loginUser.getMission())){
+		}else if(!"admin".equals(loginUser.getMission())&&!"teacher".equals(loginUser.getMission())){
 			//添加管理员的再次验证
 		return "redirect:course";
 		}
 		courseBiz.savecourse(req);
-		session.setAttribute("msg", "操作成功");
+		if("teacher".equals(loginUser.getMission())){
+			session.setAttribute("msg", "操作成功");
+			return "admin/tcourse";
+		}else {
+			session.setAttribute("msg", "操作成功");
 			return "admin/course";
-		
+		}
 	}
 
 }
