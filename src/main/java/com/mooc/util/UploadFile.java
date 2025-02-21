@@ -25,7 +25,7 @@ import org.apache.commons.fileupload.servlet.ServletRequestContext;
  */
 public class UploadFile {
 	// 上传文件存储目录
-		private static final String UPLOAD_DIRECTORY = "style\\video";
+		private static final String UPLOAD_DIRECTORY = "style\\files";
 		//上传图片存放位置
 		private static final String UPLOADImage_DIRECTORY = "style\\image\\courses";
 		
@@ -37,7 +37,6 @@ public class UploadFile {
 		 * 方法uploadFile("保存的文件名",HttpServletRequest,HttpServletResponse)
 		 * @param refilename
 		 * @param request
-		 * @param response
 		 * @return 
 		 * @return
 		 */
@@ -74,9 +73,8 @@ public class UploadFile {
 
 	        // 构造临时路径来存储上传的文件
 	        // 这个路径相对当前应用的目录
-	        String uploadPath = request.getServletContext().getRealPath("./") + File.separator + UPLOAD_DIRECTORY;
-	        String uploadImagePath = request.getServletContext().getRealPath("./") + File.separator + UPLOADImage_DIRECTORY;
-	       
+	        String uploadPath = System.getProperty("user.dir")+"\\src\\main\\webapp" + File.separator + UPLOAD_DIRECTORY;
+	        String uploadImagePath = System.getProperty("user.dir")+"\\src\\main\\webapp" + File.separator + UPLOADImage_DIRECTORY;
 	         
 	        // 如果目录不存在则创建
 	        File uploadDir = new File(uploadPath);
@@ -142,6 +140,7 @@ public class UploadFile {
 	        course.setName(pmap.get("name"));
 	        course.setContext(pmap.get("context"));
 	        course.setType(pmap.get("type"));
+			course.setKind(pmap.get("kind"));
 	        course.setPrice("1");
 	        return course;
 		}

@@ -38,10 +38,11 @@
                     </div>
                 </li>
                 <li>
-                    <h2 class="obtain">课程管理<i></i></h2>
+                    <h2 class="obtain">课程书籍管理<i></i></h2>
                     <div class="secondary">
                         <h3><a href="allcourse?page=0" target="rigt_main" style="color: white;font-size: 13px;">查看所有课程信息</a></h3>
-                        <h3><a href="coursede?" target="rigt_main" style="color: white;font-size: 13px;">添加课程信息</a></h3>
+                        <h3><a href="allBooks?page=0" target="rigt_main" style="color: white;font-size: 13px;">查看所有书籍信息</a></h3>
+                        <h3><a href="coursede?" target="rigt_main" style="color: white;font-size: 13px;">添加课程书籍信息</a></h3>
                     </div>
                 </li>
                 <li>

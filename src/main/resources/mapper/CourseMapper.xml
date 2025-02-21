@@ -9,33 +9,34 @@
     <result column="price" property="price" jdbcType="VARCHAR" />
     <result column="label" property="label" jdbcType="VARCHAR" />
     <result column="hour" property="hour" jdbcType="CHAR" />
+    <result column="kind" property="kind" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, context, type, price, label, hour
+    id, name, context, type, price, label, hour,kind
   </sql>
   <select id="selectlastcourse" resultMap="BaseResultMap">
   SELECT * from course ORDER BY id desc LIMIT 0,1
   </select>
   <select id="ageType0"  resultMap="BaseResultMap" >
     select *
-    from course where type = 0
+    from course where type = 0 and kind = 0
         
   </select>
   <select id="ageType1"  resultMap="BaseResultMap" >
     select *
-    from course where type = 1
+    from course where type = 1 and kind = 0
         
   </select>
 
   <select id="ageType2"  resultMap="BaseResultMap" >
     select *
-    from course where type = 2
+    from course where type = 2 and kind = 0
 
   </select>
 
   <select id="ageType3"  resultMap="BaseResultMap" >
     select *
-    from course where type = 3
+    from course where type = 3 and kind = 0
 
   </select>
   <select id="coursesearch" parameterType="String" resultMap="BaseResultMap" >
@@ -47,7 +48,12 @@
   </select>
 <select id="selectAllCourse" resultMap="BaseResultMap"  >
     select *
-    from course
+    from course where kind = 0
+  </select>
+
+  <select id="selectAllBooks" resultMap="BaseResultMap"  >
+    select *
+    from course where kind = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="INTEGER" >
     select 
@@ -55,7 +61,27 @@
     from course
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="bookAgeType0" resultType="com.mooc.entity.Course">
+      select *
+      from course where type = 0 and kind = 1
+    </select>
+  <select id="bookAgeType1" resultType="com.mooc.entity.Course">
+    select *
+    from course where type = 1 and kind = 1
+  </select>
+  <select id="bookAgeType2" resultType="com.mooc.entity.Course">
+    select *
+    from course where type = 2 and kind = 1
+  </select>
+  <select id="bookAgeType3" resultType="com.mooc.entity.Course">
+    select *
+    from course where type = 3 and kind = 1
+  </select>
+    <select id="selectRecommendableCourse" resultType="com.mooc.entity.Course">
+      select *
+      from course where type = #{ageType} and kind = 0
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from course
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -91,6 +117,9 @@
       <if test="hour != null" >
         hour,
       </if>
+      <if test="kind != null" >
+        kind,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -113,6 +142,9 @@
       </if>
       <if test="hour != null" >
         #{hour,jdbcType=CHAR},
+      </if>
+      <if test="kind != null" >
+        #{kind,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

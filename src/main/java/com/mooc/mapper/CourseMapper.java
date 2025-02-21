@@ -11,6 +11,7 @@ import com.mooc.entity.Course;
 public interface CourseMapper {
 	public List<Course> coursesearch(String scarch);
 	public List<Course> selectAllCourse();
+    public List<Course> selectAllBooks();
 	public List<Course> ageType0();
 	public List<Course> ageType1();
 
@@ -30,4 +31,14 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+
+    List<Course> bookAgeType0();
+
+    List<Course> bookAgeType1();
+
+    List<Course> bookAgeType2();
+
+    List<Course> bookAgeType3();
+
+    List<Course> selectRecommendableCourse(String ageType);
 }

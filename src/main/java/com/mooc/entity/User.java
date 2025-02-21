@@ -29,13 +29,13 @@ public class User {
 
     private String education;
 
-    private String age;
+    private int age;
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
