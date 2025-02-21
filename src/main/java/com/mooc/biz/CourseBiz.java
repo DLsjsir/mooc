@@ -28,4 +28,6 @@ public interface CourseBiz {
     List<Course> bookAgeType2();
 
     List<Course> bookAgeType3();
+
+    List<Course> selectRecommendableCourse(String ageType);
 }

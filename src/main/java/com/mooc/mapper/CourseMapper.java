@@ -39,4 +39,6 @@ public interface CourseMapper {
     List<Course> bookAgeType2();
 
     List<Course> bookAgeType3();
+
+    List<Course> selectRecommendableCourse(String ageType);
 }

@@ -77,7 +77,11 @@
     select *
     from course where type = 3 and kind = 1
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectRecommendableCourse" resultType="com.mooc.entity.Course">
+      select *
+      from course where type = #{ageType} and kind = 0
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from course
     where id = #{id,jdbcType=INTEGER}
   </delete>

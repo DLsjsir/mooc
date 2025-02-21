@@ -85,6 +85,11 @@ public class CourseBizImpl implements CourseBiz{
 	}
 
 	@Override
+	public List<Course> selectRecommendableCourse(String ageType) {
+		return courseMapper.selectRecommendableCourse(ageType);
+	}
+
+	@Override
 	public int deleteByPrimaryKey(String id) {
 		// TODO Auto-generated method stub
 		return courseMapper.deleteByPrimaryKey(id);
