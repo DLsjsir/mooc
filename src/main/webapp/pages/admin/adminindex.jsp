@@ -10,7 +10,7 @@
 
 
 <div style="text-align: center;padding-top: 300px;">
-<span style="font-size: 50px;text-align: center; ">欢迎您管理员：${loginUser.nickname }</span>
+<span style="font-size: 50px;text-align: center; ">欢迎您：${loginUser.nickname }</span>
 
 </div>
 </body>

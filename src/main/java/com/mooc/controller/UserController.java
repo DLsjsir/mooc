@@ -110,7 +110,7 @@ public class UserController {
 		PrintWriter out = response.getWriter();
 		if (userBiz.selectUser(paramMap) == 1) {
 			user = userBiz.selectLoginUser(paramMap);
-			if (!"admin".equals(user.getMission())&&!"showadmin".equals(user.getMission())) {
+			if (!"admin".equals(user.getMission())&&!"showadmin".equals(user.getMission())&&!"teacher".equals(user.getMission())) {
 				if (user.getBuycase() != null) {
 					if ("1".equals(user.getBuycase())) {
 						out.println("3");// 屏蔽登录
