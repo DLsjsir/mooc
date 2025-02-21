@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.mooc.entity.Course;
 
 public interface CourseBiz {
-	public List<Course> selectAllCourse();
+	List<Course> selectAllCourse();
+    List<Course> selectAllBooks();
 	Course selectByPrimaryKey(int id);
     int updateByPrimaryKeySelective(Course record);
     List<Course> coursesearch(String search);
@@ -19,4 +20,14 @@ public interface CourseBiz {
     List<Course> ageType2();
 
     List<Course> ageType3();
+
+    List<Course> bookAgeType0();
+
+    List<Course> bookAgeType1();
+
+    List<Course> bookAgeType2();
+
+    List<Course> bookAgeType3();
+
+    List<Course> selectRecommendableCourse(String ageType);
 }

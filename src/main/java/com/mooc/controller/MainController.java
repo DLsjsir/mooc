@@ -100,14 +100,14 @@ public class MainController {
 
 	@RequestMapping(value = "index_book")
 	public ModelAndView index_book(ModelAndView mav){
-		List<Course> ageType0 = courseBiz.ageType0();
-		List<Course> ageType1 = courseBiz.ageType1();
-		List<Course> ageType2 = courseBiz.ageType2();
-		List<Course> ageType3 = courseBiz.ageType3();
-		mav.addObject("ageType0", ageType0);
-		mav.addObject("ageType1", ageType1);
-		mav.addObject("ageType2", ageType2);
-		mav.addObject("ageType3", ageType3);
+		List<Course> bookAgeType0 = courseBiz.bookAgeType0();
+		List<Course> bookAgeType1 = courseBiz.bookAgeType1();
+		List<Course> bookAgeType2 = courseBiz.bookAgeType2();
+		List<Course> bookAgeType3 = courseBiz.bookAgeType3();
+		mav.addObject("ageType0", bookAgeType0);
+		mav.addObject("ageType1", bookAgeType1);
+		mav.addObject("ageType2", bookAgeType2);
+		mav.addObject("ageType3", bookAgeType3);
 		mav.setViewName("index_book");
 		return mav;
 	}

@@ -24,9 +24,26 @@
 		 <img alt="" src="style/image/courses/${course.id}.jpg">
 		 </c:if>
 			<form role="form" action="coursesave" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="exampleInputEmail1">课程或者书籍</label>
+					<c:if test="${course ==null }">
+					<select name="kind" class="form-control" id="exampleInputEmail1">
+						<option value="0" selected="selected">课程</option>
+						<option value="1">书籍</option>
+					</select>
+					</c:if>
+					<c:if test="${course.kind eq'0' }">
+					<select name="kind" class="form-control" id="exampleInputEmail1">
+						<option value="0" selected="selected">课程</option>
+					</c:if>
+						<c:if test="${course.kind eq '1' }">
+						<select name="kind" class="form-control" id="exampleInputEmail1">
+							<option value="1" selected="selected">书籍</option>
+							</c:if>
+				</div>
 			<input type="hidden" name="id" value="${course.id }">
 			    <div class="form-group">
-					 <label for="exampleInputEmail1">课程名</label>
+					 <label for="exampleInputEmail1">课程或书籍名</label>
 					 <input type="text" name="name" value="${course.name }" class="form-control" id="exampleInputEmail1" />
 				</div>
 				<div class="form-group">
@@ -34,20 +51,13 @@
 					 <input type="text" name="context" value="${course.context }" class="form-control" id="exampleInputEmail1" />
 				</div>
 				<div class="form-group">
-					 <label for="exampleInputEmail1">课程属性</label>
+					 <label for="exampleInputEmail1">年龄分级</label>
 					 <select name="type" class="form-control" id="exampleInputEmail1">
-					 <c:if test="${course.type eq '1' }">
-                     <option value="1" selected="selected">免费</option>
-                     <option value="0">免费</option>
-                     </c:if>
-                     <c:if test="${course.type eq '0' }">
-                     <option value="1">免费</option>
-                     <option value="0" selected="selected">免费</option>
-                     </c:if>
-                     <c:if test="${course==null}">
-                     <option value="1"免费</option>
-                     <option value="0">免费</option>
-                     </c:if>
+
+                     <option value="0" selected="selected">0-18岁</option>
+                     <option value="1">18-40岁</option>
+						 <option value="2">40-60岁</option>
+						 <option value="3">60岁以上</option>
                      </select>
 				</div>
 				<c:if test="${course!=null }">
@@ -58,16 +68,16 @@
 				</c:if>
 				<div class="form-group">
 					 <label for="exampleInputFile">文件上传</label>
-					 <input type="file" id="exampleInputFile" multiple="multiple" name="file" accept=".jpg,.jpeg,.ogg"/>
+					 <input type="file" id="exampleInputFile" multiple="multiple" name="file" accept=".jpg,.jpeg,.ogg,.txt"/>
 					<p class="help-block">
-						将封面图片（jpg,如上传多个图片或多个视频只按照最后一个处理）和视屏文件一起上传或单个上传，视屏文件只支持OGG格式，请转换格式之后在上传，避免客户端播放不了，视频文件上传限制500MB.
+						将封面图片（jpg,如上传多个图片或多个视频只按照最后一个处理）和视屏文件一起上传或单个上传，视屏文件只支持OGG格式，请转换格式之后在上传，避免客户端播放不了，视频文件上传限制500MB.书籍仅支持TXT格式。
 					</p>
 				</div>
 				<c:if test="${course!=null }">
 				 <button type="submit" class="btn btn-default">提交修改</button>
 				 </c:if>
 				 <c:if test="${course==null }">
-				 <button type="submit" class="btn btn-default">生成课程</button>
+				 <button type="submit" class="btn btn-default">生成课程或者书籍</button>
 				 </c:if>
 				 ${msg }
 			</form>

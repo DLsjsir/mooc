@@ -345,7 +345,32 @@ public class AdminController {
 	    session.setAttribute("courses", courses);
 		return "admin/allcourse";
 	}
-	
+
+	@RequestMapping(value = "allBooks")//全部书籍界面
+	public String allbookindex(int page, HttpSession session) {
+		User loginUser = (User) session.getAttribute("loginUser");
+		if (loginUser == null) {
+			return "login";
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+			//添加管理员的再次验证
+			return "redirect:allbook";
+		}
+		List<Course> coursess = courseBiz.selectAllBooks();
+		int totalpage = 14;//一页的数量
+		List<Course> courses = new ArrayList<Course>();
+		session.setAttribute("maxpage", (coursess.size()-1)/totalpage);
+		for(int i = page*totalpage;i<page*totalpage+totalpage;i++){
+			if(coursess.size()==i){
+				session.setAttribute("courses", courses);
+				session.setAttribute("page", page);
+				return "admin/allbook";
+			}
+			courses.add(coursess.get(i));
+		}
+		session.setAttribute("page", page);
+		session.setAttribute("courses", courses);
+		return "admin/allbook";
+	}
 	@RequestMapping(value = "bancourse")//上下架课程
 	public String bancourse(int type,int courseid, HttpSession session,HttpServletRequest req) {
 		User loginUser = (User) session.getAttribute("loginUser");
@@ -361,17 +386,32 @@ public class AdminController {
 		log.setId(courseid);
 		log.setExecutor(loginUser.getUsername());
 		log.setIp(req.getRemoteAddr());
-		if(type==1) {//下架课程
-			course.setPrice("1");
-			log.setType("下架课程："+course.getName());
+		if(course.getKind() .equals("0")){
+			if(type==1) {//下架课程
+				course.setPrice("1");
+				log.setType("下架课程："+course.getName());
+			}
+			if(type==0) {//上架课程
+				course.setPrice("0");
+				log.setType("上架课程："+course.getName());
+			}
+			logBiz.insert(log);
+			courseBiz.updateByPrimaryKeySelective(course);
+			return "redirect:allcourse?page="+page;
+		}else {
+			if(type==1) {//下架课程
+				course.setPrice("1");
+				log.setType("下架课程："+course.getName());
+			}
+			if(type==0) {//上架课程
+				course.setPrice("0");
+				log.setType("上架课程："+course.getName());
+			}
+			logBiz.insert(log);
+			courseBiz.updateByPrimaryKeySelective(course);
+			return "redirect:allBooks?page="+page;
 		}
-		if(type==0) {//上架课程
-			course.setPrice("0");
-			log.setType("上架课程："+course.getName());
-		}
-		logBiz.insert(log);
-		courseBiz.updateByPrimaryKeySelective(course);
-		return "redirect:allcourse?page="+page;
+
 	}
 	
 	
@@ -380,7 +420,7 @@ public class AdminController {
 		User loginUser = (User) session.getAttribute("loginUser");
 		resp.setCharacterEncoding("utf-8");
 		PrintWriter pw = resp.getWriter();
-		if(!removepassword.equals("591284209")){
+		if(!removepassword.equals("123456")){
 			pw.print("0");
 		}else{
 			Course course = courseBiz.selectByPrimaryKey(courseid);

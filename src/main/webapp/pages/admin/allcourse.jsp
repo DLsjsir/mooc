@@ -32,7 +32,7 @@
 						<td class="col-md-2 text-center">课程介绍</td>
 						<td class="col-md-2 text-center">课程评价</td>
 						<td class="col-md-2 text-center">课程订阅数</td>
-						<td class="col-md-2 text-center">课程属性</td>
+						<td class="col-md-2 text-center">年龄分级</td>
 						<td class="col-md-2 text-center">操作</td>
 						<td class="col-md-2 text-center">详情</td>
 						<td class="col-md-2 text-center">删除课程</td>
@@ -52,12 +52,18 @@
 							<td class="col-md-2 text-center">${order.label }</td>
 							<td class="col-md-2 text-center">${order.hour }</td>
 							<td class="col-md-2 text-center">
-							<c:if test="${order.type==1 }">
-							会员课
-							</c:if>
 							<c:if test="${order.type==0 }">
-							免费课
+							0-18岁
 							</c:if>
+							<c:if test="${order.type==1 }">
+							18-40岁
+							</c:if>
+								<c:if test="${order.type==2 }">
+									40-60岁
+								</c:if>
+								<c:if test="${order.type==3 }">
+									60岁以上
+								</c:if>
 							</td>
 							<td class="col-md-2 text-center ">
 										<c:if test="${order.price == 1}">
@@ -104,7 +110,7 @@ function reflash(){
 }
 function prevpage(){
 	var page = ${page}-1;
-	window.location.href="logpage?page="+page;
+	window.location.href="allcourse?page="+page;
 }
 function nextpage(){
 	var maxpage = ${maxpage};
@@ -112,7 +118,7 @@ function nextpage(){
 	if(page>maxpage){
 		alert("这是最后一页！");
 	}else{ 
-	window.location.href="logpage?page="+page;
+	window.location.href="allcourse?page="+page;
     }
 	}
 function removecourse(courseid){
