@@ -233,24 +233,28 @@ public class UserController {
 	@RequestMapping(value = "course")
 	// 主页课程查询
 	public String RecommendableCourse(HttpSession session, Map map,String id) {
-		//查找年龄
-		User user = userBiz.selectByPrimaryKey(id);
-		//确定年龄分级
-		String ageType = "-1";
-		if(user.getAge() >= 0 && user.getAge() <= 18){
-			ageType = "0";
-		}else if(user.getAge() > 18 && user.getAge() <= 40){
-			ageType = "1";
-		}else if(user.getAge() > 40 && user.getAge() <= 60){
-			ageType = "2";
-		}else if(user.getAge() > 60){
-			ageType = "3";
-		}
-		List<Course> courses = courseBiz.selectRecommendableCourse(ageType);
-		map.put("courses", courses);
-		return "courseindex";
+		try {
+			//查找年龄
+			User user = userBiz.selectByPrimaryKey(id);
+			//确定年龄分级
+			String ageType = "-1";
+			if (user.getAge() >= 0 && user.getAge() <= 18) {
+				ageType = "0";
+			} else if (user.getAge() > 18 && user.getAge() <= 40) {
+				ageType = "1";
+			} else if (user.getAge() > 40 && user.getAge() <= 60) {
+				ageType = "2";
+			} else if (user.getAge() > 60) {
+				ageType = "3";
+			}
+			List<Course> courses = courseBiz.selectRecommendableCourse(ageType);
+			map.put("courses", courses);
+			return "courseindex";
+		} catch (Exception e) {
+            return "login";
+        }
 
-	}
+    }
 
 
 
