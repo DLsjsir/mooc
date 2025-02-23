@@ -14,6 +14,7 @@ public class Course {
     private String label;
 
     private String hour;
+    private int time;
     /*
     种类 0：课程 1：书籍
      */
@@ -21,6 +22,14 @@ public class Course {
 
     public String getKind() {
         return kind;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public void setKind(String kind) {

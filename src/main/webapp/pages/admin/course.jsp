@@ -51,6 +51,10 @@
 					 <input type="text" name="context" value="${course.context }" class="form-control" id="exampleInputEmail1" />
 				</div>
 				<div class="form-group">
+					<label for="exampleInputEmail1">课程学习时长（分钟）</label>
+					<input type="text" name="time" value="${course.time }" class="form-control" id="exampleInputEmail1" />
+				</div>
+				<div class="form-group">
 					 <label for="exampleInputEmail1">年龄分级</label>
 					 <select name="type" class="form-control" id="exampleInputEmail1">
 

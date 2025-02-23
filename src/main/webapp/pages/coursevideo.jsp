@@ -19,7 +19,37 @@
 <script src="style/js/jquery-2.1.4.min.js"></script>
 <script src="style/js/amazeui.min.js"></script>
 <link rel="stylesheet" href="style/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script>
+    var stompClient = null;
 
+    function connect() {
+        var socket = new SockJS('/ws');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+            setInterval(sendLearningTime, 5000);
+        });
+    }
+
+    function sendLearningTime() {
+        var courseId = ${course.id};
+        var userId = ${loginUser.id}; // 假设用户ID存储在session中
+        var time = Math.floor((new Date().getTime() - startTime) / 1000);
+        stompClient.send("/app/updateLearningTime", {}, JSON.stringify({
+            'courseid': courseId, // 确保字段名与CourseProcess类中的字段名一致
+            'userid': userId, // 确保字段名与CourseProcess类中的字段名一致
+            'learntime': time // 确保字段名与CourseProcess类中的字段名一致
+        }));
+    }
+
+    var startTime = new Date().getTime();
+
+    $(document).ready(function() {
+        connect();
+    });
+</script>
 <%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/style/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath }/style/js/jquery.min.js"></script>
@@ -48,9 +78,11 @@ body {
 
 	<!-- <!—自适应布局-->
 	<div class="container-fluid" style="text-align: center;">
+		<!--
 		<video controls="controls"> <source src="style/video/${course.id }.Ogg"
 			type="video/Ogg"> <!-- <source src="style/video/1.mp4"
 			type="video/mp4"> --></video>
+		-->
 	</div>
 	<!--<embed src="style/video/1.mp4" />
 <object data="style/video/1.mp4" type="video/mp4" />
