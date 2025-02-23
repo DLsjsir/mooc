@@ -15,6 +15,7 @@
     <script src="style/js/loginandregist.js"></script>
     <script src="style/js/jquery-2.1.4.min.js"></script>
     <script src="style/js/amazeui.min.js"></script>
+
     <link rel="stylesheet" href="style/css/bootstrap.min.css">
     <title>mooc</title>
     <style>
@@ -23,6 +24,7 @@
             padding-bottom: 40px;
             color: #5a5a5a;
         }
+
         #pagination {
             display: flex;
             justify-content: center;
@@ -61,7 +63,8 @@
 <%@include file="head.jsp" %>
 
 <div class="container-fluid" style="text-align: center;">
-    <div id="displayArea" style="font-size:17px;letter-spacing: 2px;line-height: 1.4;margin-top: 100px;margin-left: 200px;margin-right: 200px;margin-bottom: 20px"></div>
+    <div id="displayArea"
+         style="font-size:17px;letter-spacing: 2px;line-height: 1.4;margin-top: 100px;margin-left: 200px;margin-right: 200px;margin-bottom: 20px"></div>
 
     <div id="pagination">
         <button onclick="previousPage()">上一页</button>
@@ -72,6 +75,7 @@
     <script>
         let currentPage = 1;
         let pages = [];
+
         // 读取文件内容
         function readFile() {
             fetch('../style/txt/test.txt')
@@ -123,7 +127,7 @@
         function connect() {
             var socket = new SockJS('/ws');
             stompClient = Stomp.over(socket);
-            stompClient.connect({}, function(frame) {
+            stompClient.connect({}, function (frame) {
                 console.log('Connected: ' + frame);
                 setInterval(sendLearningTime, 5000);
             });
@@ -142,7 +146,7 @@
 
         var startTime = new Date().getTime();
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             connect();
         });
     </script>
@@ -187,6 +191,35 @@
                 <c:if test="${review.vip==1 }">
                     <img alt="" src="style/image/vip.JPG">
                 </c:if>
+                <a href="#" onclick="reportUser('${review.context}', '${review.userid}', '${review.username}')"
+                   title="举报用户：${review.username}">
+                    用户：${review.username}<br>
+                </a>
+                <script>
+                    function reportUser(comment, userid, username) {
+                        if (confirm("确定要举报用户：" + username + " 吗？")) {
+                            $.ajax({
+                                url: "report",
+                                type: "GET",
+                                data: {
+                                    comment: encodeURIComponent(comment),
+                                    userid: userid
+                                },
+                                success: function (response, status, xhr) {
+                                    if (xhr.status === 200) {
+                                        alert("举报成功！待管理员审核后会对相关用户扣分");
+                                    } else {
+                                        alert("举报失败，请重试。");
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    alert("举报失败，请重试。");
+                                }
+                            });
+                        }
+                    }
+                </script>
+
                 用户：${review.username}<br>
                 <c:if test="${review.lable != null }">
                     <c:if test="${review.sex ==null}">
