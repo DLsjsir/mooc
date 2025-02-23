@@ -159,6 +159,27 @@
 							<label class="col-md-3 control-label" id="spanPassword"
 								style="text-align: left;"></label>
 						</div>
+								<div class="form-group">
+									<label for="nickname" class="col-md-3 control-label">昵称</label>
+									<div class="col-md-6">
+										<input name="nickname" type="text" id="nickname" maxlength="10"
+											   placeholder="请输入昵称" class="input form-control"
+											   autofocus />
+									</div>
+									<label class="col-md-3 control-label" id="spanPassword"
+										   style="text-align: left;"></label>
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputEmail1" class="col-md-3 control-label">身份</label>
+									<div class="col-md-6">
+									<select name="mission" class="form-control" id="exampleInputEmail1">
+										<option value="user" selected="selected">普通用户</option>
+										<option value="teacher">教师</option>
+										<option value="admin">管理员</option>
+									</select>
+								</div>
+								</div>
 						<div class="form-group">
 							<label for="email" class="col-md-3 control-label">Email</label>
 							<div class="col-md-6">
