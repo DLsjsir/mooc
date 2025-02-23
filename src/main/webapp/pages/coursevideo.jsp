@@ -6,7 +6,10 @@
 
 <html>
 <head>
-<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<meta charset="utf-8">
   <link rel="stylesheet" href="style/css/login.css">
 <script src="style/js/login.js"></script>
 <link rel="stylesheet" href="style/css/amazeui.min.css">

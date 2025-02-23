@@ -6,7 +6,10 @@
 
 <html>
 <head>
-<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <script src="style/js/jquery-3.2.1.min.js"></script>
 
