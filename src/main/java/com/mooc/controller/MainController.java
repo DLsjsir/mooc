@@ -18,16 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.crypto.Data;
 
+import com.mooc.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mooc.biz.*;
-import com.mooc.entity.Course;
-import com.mooc.entity.Log;
-import com.mooc.entity.Review;
-import com.mooc.entity.User;
 import com.mooc.util.DateUtil;
 import com.mooc.util.NubmerToJpgUtil;
 import com.mooc.util.UploadFile;
@@ -46,6 +43,8 @@ public class MainController {
 	MessageBiz messageBiz;
 	@Autowired
 	LogBiz logBiz;
+	@Autowired
+	ReportBiz reportBiz;
 	public void setlog(User loginUser, String ip, String type) {
 		Log log = new Log();
 		log.setUserid(loginUser.getId());
@@ -135,6 +134,7 @@ public class MainController {
 		review.setSex(loginUser.getSex());
 		review.setReviewid(DateUtil.getId());
 		review.setUsername(loginUser.getUsername());
+		review.setUserid(loginUser.getId());
 		reviewBiz.insert(review);
 		setlog(loginUser, req.getRemoteAddr(), "发表评论，在'"+courseBiz.selectByPrimaryKey(review.getCourseid()).getName() +"'");
 		return "redirect:coursevideo?courseid=" + review.getCourseid();
@@ -182,6 +182,19 @@ public class MainController {
 		session.setAttribute("message", "上传成功！");
 		return "message";
 	}*/
+
+	@RequestMapping(value = "report")
+	// 查找课程
+	public String report(String comment, String userid, Map map) {
+		Report report = new Report();
+		report.setUserid(userid);
+		report.setComment(comment);
+		report.setStatus("0");
+		report.setId(DateUtil.getId());
+		reportBiz.insert(report);
+		map.put("message" ,"举报成功！");
+		return "coursevideo";
+	}
 
 
 }

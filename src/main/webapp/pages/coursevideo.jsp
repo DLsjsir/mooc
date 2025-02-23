@@ -102,7 +102,9 @@ classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
 					<c:if test="${review.vip==1 }">
 					<img alt="" src="style/image/vip.JPG">
 					</c:if>
-					用户：${review.username}<br>
+					<a href="report?comment=${review.context}&userid=${review.userid}">
+						用户：${review.username}<br>
+					</a>
 					<c:if test="${review.lable != null }">
 					<c:if test="${review.sex ==null}">
 					他觉得课程:
