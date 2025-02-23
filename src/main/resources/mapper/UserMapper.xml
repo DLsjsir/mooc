@@ -158,7 +158,9 @@
       <if test="vip != null" >
         #{vip,jdbcType=TIMESTAMP},
       </if>
-      
+      <if test="age != null" >
+        #{age,jdbcType=TIMESTAMP},
+      </if>
         now(),
       
     </trim>
