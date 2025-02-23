@@ -20,7 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletRequestContext;
 /**
  * 文件上传包装类
  * jpg文件与其他文件分开存放
- * @author ccnoobs-杨祺晖
+ * @author ccnoobs-艾思琪
  *
  */
 public class UploadFile {

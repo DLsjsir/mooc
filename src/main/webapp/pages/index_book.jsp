@@ -264,7 +264,7 @@ body {
 <footer style="text-align: center">
 <hr>
 <p class="am-padding-left">
-	© 2025 <a href="#">郑州西亚斯学院</a>. 作者:杨祺晖
+	© 2025 <a href="#">郑州西亚斯学院</a>. 作者:艾思琪
 </p>
 </br>
 </br>
