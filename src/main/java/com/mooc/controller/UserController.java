@@ -234,8 +234,9 @@ public class UserController {
 	// 主页课程查询
 	public String RecommendableCourse(HttpSession session, Map map,String id) {
 		try {
+			User user = (User) session.getAttribute("loginUser");
 			//查找年龄
-			User user = userBiz.selectByPrimaryKey(id);
+			//User user = userBiz.selectByPrimaryKey(id);
 			//确定年龄分级
 			String ageType = "-1";
 			if (user.getAge() >= 0 && user.getAge() <= 18) {
