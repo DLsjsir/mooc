@@ -294,7 +294,12 @@ public class UserController {
 		map.put("course", course);
 		List<Review> reviews = reviewBiz.select(courseid);
 		map.put("reviews", reviews);
-		return "coursevideo";
+		if(course.getKind().equals("0")){
+			return "coursevideo";
+		}else {
+			return "book_study";
+		}
+
 
 	}
 

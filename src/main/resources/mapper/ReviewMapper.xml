@@ -54,6 +54,9 @@
       <if test="vip != null" >
         vip,
       </if>
+      <if test="userid != null" >
+        userid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="reviewid != null" >
@@ -77,6 +80,9 @@
       </if>
       <if test="vip != null" >
         #{vip,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

@@ -12,7 +12,17 @@ private int lable;
 private String sex;
 private int vip;
 
-public String getSex() {
+private String userid;
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getSex() {
 	return sex;
 }
 public void setSex(String sex) {
