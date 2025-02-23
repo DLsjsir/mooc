@@ -117,6 +117,35 @@
         // 页面加载时读取文件
         window.onload = readFile;
     </script>
+    <script>
+        var stompClient = null;
+
+        function connect() {
+            var socket = new SockJS('/ws');
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                console.log('Connected: ' + frame);
+                setInterval(sendLearningTime, 5000);
+            });
+        }
+
+        function sendLearningTime() {
+            var courseId = ${course.id};
+            var userId = ${loginUser.id}; // 假设用户ID存储在session中
+            var time = Math.floor((new Date().getTime() - startTime) / 1000);
+            stompClient.send("/app/updateLearningTime", {}, JSON.stringify({
+                'courseid': courseId, // 确保字段名与CourseProcess类中的字段名一致
+                'userid': userId, // 确保字段名与CourseProcess类中的字段名一致
+                'learntime': time // 确保字段名与CourseProcess类中的字段名一致
+            }));
+        }
+
+        var startTime = new Date().getTime();
+
+        $(document).ready(function() {
+            connect();
+        });
+    </script>
 </div>
 
 <!-- 评论区 -->

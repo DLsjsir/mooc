@@ -98,30 +98,30 @@ body {
 
 								<div class="btnarea f-pa j-chbtnarea">
 
-									<c:if test="${isSelect == false }">
-									   <c:choose>
-											<c:when test="${course.price eq 0 }">
-										<a class="learnbtn f-db f-cb j-joinBtn"> <span>立即参加</span></a>
-										</c:when>
-											<c:otherwise>
-											<a style="background: gray; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;"> <span>暂时下架</span></a>
-											</c:otherwise>
-										</c:choose>
-									</c:if>
-									<c:if test="${isSelect == true }">
-										<c:if test="${course.kind eq 0}">
+                                <c:if test="${isSelect == false }">
+                                    <c:choose>
+                                        <c:when test="${course.price eq 0 }">
+                                            <a class="learnbtn f-db f-cb j-joinBtn"> <span>立即参加</span></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a style="background: gray; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;">
+                                                <span>暂时下架</span></a>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:if>
+                                <c:if test="${isSelect == true }">
+                                    <c:if test="${course.kind eq 0}">
 											<a class="learnbtn f-db f-cb j-joinBtn"><span>取消课程</span></a>
-											<c:choose>
-												<c:when test="${course.price eq 0 }">
-													<a href="coursevideo?courseid=${course.id}"><span
-															style="background: #ee6600; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;">去听课</span></a>
-												</c:when>
-												<c:otherwise>
-													<a href="#"><span
-															style="background: gray; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;">该课程暂时下架</span></a>
-												</c:otherwise>
-											</c:choose>
-										</c:if>
+                                    <c:choose>
+                                        <c:when test="${course.price eq 0 }">
+                                            <a href="coursevideo?courseid=${course.id}"><span
+                                                    style="background: #ee6600; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;">去听课</span></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#"><span
+                                                    style="background: gray; color: white; font-size: 20px; line-height: 45px; width: 160px; height: 45px; text-align: center; vertical-align: middle; display: inline-block;">该课程暂时下架</span></a>
+                                        </c:otherwise>
+                                    </c:choose></c:if>
 										<c:if test="${course.kind eq 1}">
 											<a class="learnbtn f-db f-cb j-joinBtn"><span>取消书籍学习</span></a>
 											<c:choose>
@@ -135,13 +135,12 @@ body {
 												</c:otherwise>
 											</c:choose>
 										</c:if>
-
-									</c:if>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 			</div>

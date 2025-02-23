@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mooc.mapper.CourseProcessMapper" >
+    <resultMap id="BaseResultMap" type="com.mooc.entity.CourseProcess" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="courseid" property="courseid" jdbcType="INTEGER" />
+        <result column="userid" property="userid" jdbcType="VARCHAR" />
+        <result column="learntime" property="learntime" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,courseid, userid,learntime
+    </sql>
+
+    <select id="select" resultMap="BaseResultMap">
+        select *
+        from courseprocess
+    </select>
+    <select id="selectbyuserid" resultMap="BaseResultMap">
+        select *
+        from courseprocess
+        where userid = #{userid}
+    </select>
+
+    <select id="selectByCourseIdAndUserId" resultMap="BaseResultMap">
+        select *
+        from courseprocess
+        where courseid = #{courseid} and userid = #{userid}
+    </select>
+
+    <insert id="insert" parameterType="com.mooc.entity.CourseProcess" >
+        insert into courseprocess (courseid, userid,learntime)
+        values (#{courseid},#{userid},#{learntime})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.mooc.entity.CourseProcess" >
+        update courseprocess
+        <set >
+            <if test="learntime != null" >
+                learntime = #{learntime,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

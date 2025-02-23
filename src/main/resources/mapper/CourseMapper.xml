@@ -10,9 +10,10 @@
     <result column="label" property="label" jdbcType="VARCHAR" />
     <result column="hour" property="hour" jdbcType="CHAR" />
     <result column="kind" property="kind" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, context, type, price, label, hour,kind
+    id, name, context, type, price, label, hour,kind,time
   </sql>
   <select id="selectlastcourse" resultMap="BaseResultMap">
   SELECT * from course ORDER BY id desc LIMIT 0,1
@@ -20,12 +21,12 @@
   <select id="ageType0"  resultMap="BaseResultMap" >
     select *
     from course where type = 0 and kind = 0
-        
+
   </select>
   <select id="ageType1"  resultMap="BaseResultMap" >
     select *
     from course where type = 1 and kind = 0
-        
+
   </select>
 
   <select id="ageType2"  resultMap="BaseResultMap" >
@@ -41,10 +42,10 @@
   </select>
   <select id="coursesearch" parameterType="String" resultMap="BaseResultMap" >
     select *
-    from course where name like 
-    
+    from course where name like
+
         concat('%',#{0},'%')
-        
+
   </select>
 <select id="selectAllCourse" resultMap="BaseResultMap"  >
     select *
@@ -56,7 +57,7 @@
     from course where kind = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="INTEGER" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from course
     where id = #{id,jdbcType=INTEGER}
@@ -86,12 +87,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.mooc.entity.Course" >
-    insert into course (id, name, context, 
-      type, price, label, 
+    insert into course (id, name, context,
+      type, price, label,
       hour)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR}, 
-      #{type,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
-      #{hour,jdbcType=CHAR})
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{context,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR},
+      #{hour,jdbcType=CHAR},#{time,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.mooc.entity.Course" >
     insert into course
@@ -120,6 +121,9 @@
       <if test="kind != null" >
         kind,
       </if>
+      <if test="time != null" >
+        time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -146,6 +150,9 @@
       <if test="kind != null" >
         #{kind,jdbcType=VARCHAR},
       </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mooc.entity.Course" >
@@ -169,6 +176,9 @@
       <if test="hour != null" >
         hour = #{hour,jdbcType=CHAR},
       </if>
+      <if test="time != null" >
+        hour = #{time,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -179,7 +189,8 @@
       type = #{type,jdbcType=VARCHAR},
       price = #{price,jdbcType=VARCHAR},
       label = #{label,jdbcType=VARCHAR},
-      hour = #{hour,jdbcType=CHAR}
+      hour = #{hour,jdbcType=CHAR},
+      time = #{time,jdbcType=INTEGER},
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -20,6 +20,15 @@ public class UploadCourse {
     private String label;
 
     private String hour;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     private MultipartFile[] files;
 
