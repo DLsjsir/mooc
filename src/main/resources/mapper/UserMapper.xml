@@ -205,6 +205,9 @@
       <if test="vip != null" >
         vip = #{vip,jdbcType=TIMESTAMP},
       </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
