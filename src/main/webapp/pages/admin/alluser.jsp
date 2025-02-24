@@ -31,8 +31,7 @@
 					<td class="col-md-2 text-center">用户名</td>
 					<td class="col-md-2 text-center">用户昵称</td>
 					<td class="col-md-2 text-center">用户密码</td>
-					<td class="col-md-2 text-center">余额</td>
-					<td class="col-md-2 text-center">vip到期日</td>
+					<td class="col-md-2 text-center">信誉积分</td>
 					<td class="col-md-2 text-center">注册时间</td>
 					<td class="col-md-2 text-center">权限</td>
 					<td class="col-md-2 text-center">操作</td>
@@ -60,16 +59,13 @@
 						<c:when test="${order.mission eq 'admin' }">
 						-----
 						</c:when>
-						<c:otherwise> 
-						${order.password }
+						<c:otherwise>
+						${order.password}
 						</c:otherwise>
 						</c:choose>
 						</td>
 						<td class="col-md-2 text-center">
-							${order.collect }
-						</td>
-						<td class="col-md-2 text-center">
-							<fmt:formatDate value="${order.vip}" pattern="yyyy-MM-dd"/>
+							${order.score }
 						</td>
 						<td class="col-md-2 text-center">
 						<fmt:formatDate value="${order.fristtime}" pattern="yyyy-MM-dd"/>
@@ -79,8 +75,11 @@
 						<c:when test="${order.mission eq 'admin' }">
 						管理员
 						</c:when>
-						<c:otherwise> 
-						-----------
+							<c:when test="${order.mission eq 'teacher' }">
+								教师
+							</c:when>
+						<c:otherwise>
+						普通用户
 						</c:otherwise>
 						</c:choose>
 						</td>

@@ -21,7 +21,7 @@
   </resultMap>
   <sql id="Base_Column_List" >
     id, phone, mail, vx, sex, nickname, username, password, mission, buycase, mycase, collect, 
-    education, vip,fristtime,age
+    education, vip,fristtime,age,score
   </sql>
   <!-- 查询所有用户 -->
   <select id="selectAllUser" resultMap="BaseResultMap" >
