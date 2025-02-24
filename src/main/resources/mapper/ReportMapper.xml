@@ -6,4 +6,15 @@
         insert into report (id, userid, comment, status)
         values (#{report.id}, #{report.userid}, #{report.comment}, #{report.status})
     </insert>
+    <update id="updateByPrimaryKeySelective">
+        update report
+        set status = #{report.status}
+        where id = #{report.id}
+    </update>
+    <select id="selectAll" resultType="com.mooc.entity.Report">
+        select * from report
+    </select>
+    <select id="selectByPrimaryKey" resultType="com.mooc.entity.Report">
+        select * from report where id = #{id}
+    </select>
 </mapper>
