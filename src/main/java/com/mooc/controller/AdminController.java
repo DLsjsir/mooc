@@ -149,6 +149,7 @@ public class AdminController {
 			if(type==1){//1为恢复用户
 				User user = userBiz.selectByPrimaryKey(userid);
 				user.setBuycase("0");
+				user.setScore(100);
 				userBiz.updateByPrimaryKeySelective(user);
 				setlog(user,req.getRemoteAddr(),"恢复用户登录",loginUser.getUsername());
 				return "redirect:alluser?page=0";
