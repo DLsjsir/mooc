@@ -13,4 +13,6 @@ public interface ReportBiz {
     Report selectByPrimaryKey(String id);
 
     void updateByPrimaryKeySelective(Report report);
+
+    Report selectReport(String reportuserid, String userid, String comment);
 }
