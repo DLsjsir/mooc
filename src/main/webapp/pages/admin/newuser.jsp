@@ -46,6 +46,15 @@
 								style="text-align: left;"></label>
 						</div>
 						<div class="form-group">
+							<label for="score" class="col-md-3 control-label">信誉积分</label>
+							<div class="col-md-6">
+								<input name="score" type="text" id="score" value="${user.score }"
+									   class="form-control" disabled>
+							</div>
+							<label class="col-md-3 control-label" id="spanEmail"
+								   style="text-align: left;"></label>
+						</div>
+						<div class="form-group">
 							<label for="email" class="col-md-3 control-label">Email</label>
 							<div class="col-md-6">
 								<input name="mail" type="email" id="email" value="${user.mail }"
