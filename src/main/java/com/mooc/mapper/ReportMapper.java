@@ -13,4 +13,6 @@ public interface ReportMapper {
     Report selectByPrimaryKey(@Param("id") String id);
 
     void updateByPrimaryKeySelective(@Param("report") Report report);
+
+    Report selectReport(@Param("reportuserid") String reportuserid, @Param("userid") String userid, @Param("comment") String comment);
 }

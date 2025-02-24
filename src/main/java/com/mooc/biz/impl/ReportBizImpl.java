@@ -32,4 +32,9 @@ public class ReportBizImpl implements ReportBiz {
     public void updateByPrimaryKeySelective(Report report) {
        reportMapper.updateByPrimaryKeySelective(report);
     }
+
+    @Override
+    public Report selectReport(String reportuserid, String userid, String comment) {
+        return reportMapper.selectReport(reportuserid, userid, comment);
+    }
 }

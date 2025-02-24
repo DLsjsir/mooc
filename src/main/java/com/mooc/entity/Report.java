@@ -8,6 +8,16 @@ public class Report {
 
     private String status;
 
+    private String reportuserid;
+
+    public String getReportuserid() {
+        return reportuserid;
+    }
+
+    public void setReportuserid(String reportuserid) {
+        this.reportuserid = reportuserid;
+    }
+
     public int getId() {
         return id;
     }

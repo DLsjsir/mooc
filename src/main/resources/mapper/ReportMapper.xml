@@ -3,8 +3,8 @@
 <mapper namespace="com.mooc.mapper.ReportMapper">
 
     <insert id="insert" parameterType="com.mooc.entity.Report">
-        insert into report (id, userid, comment, status)
-        values (#{report.id}, #{report.userid}, #{report.comment}, #{report.status})
+        insert into report (id, userid, comment, status, reportuserid)
+        values (#{report.id}, #{report.userid}, #{report.comment}, #{report.status},#{report.reportuserid})
     </insert>
     <update id="updateByPrimaryKeySelective">
         update report
@@ -16,5 +16,8 @@
     </select>
     <select id="selectByPrimaryKey" resultType="com.mooc.entity.Report">
         select * from report where id = #{id}
+    </select>
+    <select id="selectReport" resultType="com.mooc.entity.Report">
+        select * from report where userid = #{userid} and comment = #{comment} and status = "0" and reportuserid = #{reportuserid}
     </select>
 </mapper>

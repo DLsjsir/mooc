@@ -182,10 +182,17 @@ public class MainController {
 	}*/
 
 	@RequestMapping(value = "report")
-	public String report(String comment, String userid, Map map) throws IOException {
-		Report report = new Report();
-		report.setUserid(userid);
+	public String report(String comment, String userid, Map map,HttpSession session) throws IOException {
+		User loginUser = (User) session.getAttribute("loginUser");
 		comment = java.net.URLDecoder.decode(comment, "UTF-8");
+		Report reported = reportBiz.selectReport(loginUser.getId(),userid,comment);
+		if(reported!=null){
+            map.put("message" ,"您已经举报过这条评论了！");
+            return "coursevideo";
+        }
+		Report report = new Report();
+		report.setReportuserid(loginUser.getId());
+		report.setUserid(userid);
 		report.setComment(comment);
 		report.setStatus("0");
 		reportBiz.insert(report);
