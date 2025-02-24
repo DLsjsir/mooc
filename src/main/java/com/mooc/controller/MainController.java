@@ -6,11 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +27,8 @@ import com.mooc.util.UploadFile;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.utils.CaptchaUtil;
 import org.springframework.web.servlet.ModelAndView;
+import sun.misc.BASE64Decoder;
+
 @Controller
 public class MainController {
 	@Autowired
@@ -184,13 +182,12 @@ public class MainController {
 	}*/
 
 	@RequestMapping(value = "report")
-	// 查找课程
-	public String report(String comment, String userid, Map map) {
+	public String report(String comment, String userid, Map map) throws IOException {
 		Report report = new Report();
 		report.setUserid(userid);
+		comment = java.net.URLDecoder.decode(comment, "UTF-8");
 		report.setComment(comment);
 		report.setStatus("0");
-		report.setId(DateUtil.getId());
 		reportBiz.insert(report);
 		map.put("message" ,"举报成功！");
 		return "coursevideo";

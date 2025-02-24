@@ -34,7 +34,8 @@
                     <div class="secondary">
                         <h3><a href="alluser?page=0" target="rigt_main" style="color: white;font-size: 13px;">所有用户</a></h3>
                         <h3><a href="newuser" target="rigt_main" style="color: white;font-size: 13px;">新增用户</a></h3>
-                        <h3><a href="rechargeindex" target="rigt_main" style="color: white;font-size: 13px;">账户余额充值</a></h3>
+                        <h3><a href="allreport?page=0" target="rigt_main" style="color: white;font-size: 13px;">举报反馈</a></h3>
+<%--                        <h3><a href="rechargeindex" target="rigt_main" style="color: white;font-size: 13px;">账户余额充值</a></h3>--%>
                     </div>
                 </li>
                 <li>
@@ -52,13 +53,13 @@
                         <h3><a href="showlog?type=admin" target="rigt_main" style="color: white;font-size: 13px;">管理员操作日志</a></h3>
                     </div>
                 </li>
-                <li>
-                    <h2 class="obtain">IP管理<i></i></h2>
-                    <div class="secondary">
-                        <h3><a href="allip?page=0" target="rigt_main" style="color: white;font-size: 13px;">所有IP日志</a></h3>
-                        <h3><a href="ipset" target="rigt_main" style="color: white;font-size: 13px;">新建IP管理</a></h3>
-                    </div>
-                </li>
+<%--                <li>--%>
+<%--                    <h2 class="obtain">IP管理<i></i></h2>--%>
+<%--                    <div class="secondary">--%>
+<%--                        <h3><a href="allip?page=0" target="rigt_main" style="color: white;font-size: 13px;">所有IP日志</a></h3>--%>
+<%--                        <h3><a href="ipset" target="rigt_main" style="color: white;font-size: 13px;">新建IP管理</a></h3>--%>
+<%--                    </div>--%>
+<%--                </li>--%>
             </ul>
 <div style="margin-top: 50px;text-align: center;">
                         <h3><a href="logoutadmin" style="font-size: 15px;color: white;">退出mooc后台管理</a></h3>

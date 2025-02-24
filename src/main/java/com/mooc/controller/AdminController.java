@@ -42,6 +42,8 @@ public class AdminController {
 	IpsetBiz ipsetBiz;
 	@Autowired
 	MessageBiz messageBiz;
+	@Autowired
+	ReportBiz reportBiz;
 	public void setlog(User loginUser,String ip,String type,String adminname){
 		Log log = new Log();
 		log.setUserid(loginUser.getId());
@@ -593,6 +595,72 @@ public class AdminController {
 			session.setAttribute("msg", "操作成功");
 			return "admin/course";
 		}
+	}
+
+	@RequestMapping(value = "allreport")//展示所有举报信息
+	public ModelAndView allreport(ModelAndView mav, int page, HttpSession session) {
+		User loginUser = (User) session.getAttribute("loginUser");
+		if (loginUser == null) {
+			mav.setViewName("login");
+			return mav;
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+			//添加管理员的再次验证
+			mav.setViewName("redirect:course");
+			return mav;
+		}else{
+			List<Report> reports = reportBiz.selectAll();
+			int totalpage = 14;//一页的数量
+			List<Report> reportList = new ArrayList<Report>();
+			mav.addObject("maxpage", (reports.size()-1)/totalpage);
+			for(int i = page*totalpage;i<page*totalpage+totalpage;i++){
+				if(reports.size()==i){
+					mav.addObject("reports", reportList);
+					mav.addObject("page", page);
+					mav.setViewName("admin/allreport");
+					return mav;
+				}
+				reportList.add(reports.get(i));
+			}
+			mav.addObject("page", page);
+			mav.addObject("loginUser", loginUser);
+			mav.addObject("reports", reportList);
+			mav.setViewName("admin/allreport");
+			return mav;
+
+		}
+	}
+
+	@RequestMapping(value = "examine")//上下架课程
+	public String examine(String id,int type,int page, HttpSession session,HttpServletRequest req) {
+		User loginUser = (User) session.getAttribute("loginUser");
+		if (loginUser == null) {
+			return "login";
+		}else if(!"admin".equals(loginUser.getMission())&&!"showadmin".equals(loginUser.getMission())){
+			//添加管理员的再次验证
+			return "redirect:course";
+		}
+		Report report = reportBiz.selectByPrimaryKey(id);
+		Log log = new Log();
+		log.setId(report.getId());
+		log.setExecutor(loginUser.getUsername());
+		log.setIp(req.getRemoteAddr());
+		if (type == 1) {//审核通过
+			report.setStatus("1");
+			User user = userBiz.selectByPrimaryKey(report.getUserid());
+			if((user.getScore() - 10) < 60){
+				user.setBuycase("1");
+			}
+			user.setScore(user.getScore() - 10);
+			userBiz.updateByPrimaryKeySelective(user);
+			log.setType("举报通过：" + report.getId());
+		}
+		if (type == 0) {//审核不通过
+			report.setStatus("2");
+			log.setType("举报不通过：" + report.getId());
+		}
+		logBiz.insert(log);
+		reportBiz.updateByPrimaryKeySelective(report);
+		return "redirect:allreport?page=" + page;
 	}
 
 }
